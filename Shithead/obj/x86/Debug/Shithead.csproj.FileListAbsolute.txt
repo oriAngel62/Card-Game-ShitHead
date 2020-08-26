@@ -1,0 +1,152 @@
+C:\Users\Ori\AppData\Local\Temporary Projects\Shithead\bin\Debug\Shithead.exe
+C:\Users\Ori\AppData\Local\Temporary Projects\Shithead\bin\Debug\Shithead.pdb
+C:\Users\Ori\AppData\Local\Temporary Projects\Shithead\obj\x86\Debug\Shithead.Form1.resources
+C:\Users\Ori\AppData\Local\Temporary Projects\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\Ori\AppData\Local\Temporary Projects\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+C:\Users\Ori\AppData\Local\Temporary Projects\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\Ori\AppData\Local\Temporary Projects\Shithead\obj\x86\Debug\Shithead.pdb
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+F:\Shithead\Shithead\bin\Debug\Shithead.exe
+F:\Shithead\Shithead\bin\Debug\Shithead.pdb
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+K:\Shithead\Shithead\bin\Debug\Shithead.exe
+K:\Shithead\Shithead\bin\Debug\Shithead.pdb
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+Z:\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+Z:\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+Z:\Shithead\Shithead\bin\Debug\Shithead.exe
+Z:\Shithead\Shithead\bin\Debug\Shithead.pdb
+Z:\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+Z:\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+Z:\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+Z:\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+Z:\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\Shithead\Shithead\bin\Debug\Shithead.exe
+C:\Users\Ori\Desktop\Shithead\Shithead\bin\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+K:\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+F:\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\bin\Debug\Shithead.exe
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\bin\Debug\Shithead.pdb
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\Users\class01\Desktop\תיקיה חדשה (2)\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+C:\Users\class01\Desktop\Shithead\Shithead\bin\Debug\Shithead.exe
+C:\Users\class01\Desktop\Shithead\Shithead\bin\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\bin\Debug\Shithead.exe
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\bin\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\משחקים\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+C:\Users\class01\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+C:\Users\Ori\Desktop\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.exe
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\bin\Debug\Shithead.exe
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\bin\Debug\Shithead.pdb
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+C:\Users\Ori\Desktop\אורי אנג'ל פרויקט במחשבים 2016\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+C:\Users\Ori\Desktop\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\Ori\Desktop\New folder\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+K:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+K:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.exe
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.pdb
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csprojResolveAssemblyReference.cache
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+H:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.Cache
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.exe
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.pdb
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csprojAssemblyReference.cache
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.cache
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.CopyComplete
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+D:\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.exe
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\bin\Debug\Shithead.pdb
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csprojAssemblyReference.cache
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.cache
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.CoreCompileInputs.cache
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.CopyComplete
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.exe
+C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
