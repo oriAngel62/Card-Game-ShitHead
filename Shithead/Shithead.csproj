@@ -60,6 +60,7 @@
     <Compile Include="End.Designer.cs">
       <DependentUpon>End.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="instructions.cs">
       <SubType>Form</SubType>

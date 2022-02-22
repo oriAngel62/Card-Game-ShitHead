@@ -4,10 +4,11 @@ using System.Text;
 using Unit4.CollectionsLib;
 using System.Drawing;
 using System.Windows.Forms;
+using Shithead.Enums;
 
 namespace Shithead
 {
-    class Game 
+    public class Game 
     {
 
         private Card_Stack cardStackPlayer;//כל הקלפים שיש ברשות השחקן
@@ -16,10 +17,9 @@ namespace Shithead
         static Main_Game mainGame;//תכונה סטטית לצורך שימוש בפעולות הפורם 
         static End end;//תכונה סטטית לצורך שימוש בפעולות הפורם 
 
-        public enum Level { easy, normal, hard }//רמת המחשב
-        private Level level;
+        public Level Level { get; set; }
 
-        public enum ShowComputerCards { yes, no };//להראות את הקלפים שביד המחשב
+       
         private ShowComputerCards showComputerCards;
 
 
@@ -30,7 +30,7 @@ namespace Shithead
         private bool checkWin = false;//בדיקת ניצחון
         
 
-        private int pointsComputer = 0;//ניקוד מחשב
+        public int PointsComputer { get; set; } = 0;
         private int pointsPlayer = 0;//ניקוד שחקן
 
         private List<Card> memory = new List<Card>();//רשימת קלפים המכילה את הקלפים שהמחשב יודע שיש לשחקן ביד
@@ -52,13 +52,13 @@ namespace Shithead
         public Level GetLevel()
         {
             //מחזירה את הרמה של המחשב
-            return level;
+            return Level;
         }
 
         public void SetLevel(Level level1)
         {
             //מעדכנת את הרמה של המחשב
-            this.level = level1;
+            this.Level = level1;
         }
 
         public ShowComputerCards GetShow()
@@ -86,22 +86,12 @@ namespace Shithead
             return this.numberOfSameCard;
         }
 
-        public int GetPointsComputer()
-        {
-            //מחזירה את ניקוד המחשב 
-            return this.pointsComputer;
-        }
         public int GetPointsPlayer()
         {
             //מחזירה את ניקוד השחקן
             return this.pointsPlayer;
         }
 
-        public void SetPointsComputer(int num)
-        {
-            //מעדכנת ניקוד מחשב
-            this.pointsComputer = num;
-        }
         public void SetPointsPlayer(int num)
         {
             //מעדכנת ניקוד שחקן
@@ -190,7 +180,7 @@ namespace Shithead
             int i, x, j, b = 52, k = 0;
             for (i = 2; i < 15; i++)
             {
-                for (Card.Shape shape = Card.Shape.D; shape <= Card.Shape.C; shape++)
+                for (Shape shape = Shape.D; shape <= Shape.C; shape++)
                 {
                     a1[k] = new Card(i, shape);
                     k++;
@@ -312,7 +302,7 @@ namespace Shithead
                     cardPlayer.SetY(y);
 
                     this.cardStackPlayer.InsertCardToList(listPlayer, cardPlayer);                   
-                    cardPlayer.PushStackLastTurn(Card.Undo.drawCard);
+                    cardPlayer.PushStackLastTurn(Undo.DrawCard);
                     PushStackUndo(cardPlayer);
 
 
@@ -336,7 +326,7 @@ namespace Shithead
                     cardComputer.SetY(y);
 
                     this.cardStackPlayer.InsertCardToList(listComputer, cardComputer);
-                    cardComputer.PushStackLastTurn(Card.Undo.drawCard);                 
+                    cardComputer.PushStackLastTurn(Undo.DrawCard);               
                     PushStackUndo(cardComputer);
                 }
             }
@@ -446,13 +436,13 @@ namespace Shithead
 
             Card card = null;
 
-            if (level == Level.hard)
+            if (Level == Level.Hard)
             {
                 this.memory=cardStackComputer.CopyList(GetCardStackPlayer().GetList());              
             }
 
 
-            if ((level == Level.normal) || (level == Level.hard))
+            if ((Level == Level.Normal) || (Level == Level.Hard))
             {
 
                 if (!GetListMemory().IsEmpty() && GetCardStackComputer().LengthList(listComputer) >= 2)
@@ -503,7 +493,7 @@ namespace Shithead
                 
                     if (!card.GetBackFinal())
                     {
-                        card.PushStackLastTurn(Card.Undo.computerThrowCard);
+                        card.PushStackLastTurn(Undo.ComputerThrowCard);
                       
                         PushStackUndo(card);
                         Drag(card);
@@ -528,7 +518,7 @@ namespace Shithead
                         else
                         {
                           
-                            if ((level == Level.normal) || (level == Level.hard))
+                            if ((Level == Level.Normal) || (Level == Level.Hard))
                             {
                                 if (!cardStackComputer.GetList().IsEmpty() && !IsSpecial(card) && (!minMaxCard || bestCard))
                                 {
@@ -540,7 +530,7 @@ namespace Shithead
                                         System.Threading.Thread.Sleep(50);
                                         mainGame.Refresh();
                                      
-                                        card1.PushStackLastTurn(Card.Undo.computerThrowCard);
+                                        card1.PushStackLastTurn(Undo.ComputerThrowCard);
                                         
                                         PushStackUndo(card1);
                                         Drag(card1);
@@ -638,7 +628,7 @@ namespace Shithead
                     InsertCardToList(memory, card);        
                     PushStackUndo(card);
 
-                    card.PushStackLastTurn(Card.Undo.playerTakeCard);                
+                    card.PushStackLastTurn(Undo.PlayerTakeCard);                
                     mainGame.ChangeVisible(FindSameCard());
 
 
@@ -676,7 +666,7 @@ namespace Shithead
                     card.SetY(y);
                     cardStackComputer.InsertCardToList(cardStackComputer.GetList(), card);              
                     PushStackUndo(card);                  
-                    card.PushStackLastTurn(Card.Undo.computerTakeCard);
+                    card.PushStackLastTurn(Undo.ComputerTakeCard);
            
 
 
@@ -768,7 +758,7 @@ namespace Shithead
             }
             if (str == "computer")
             {                
-                if (GetShow() == Game.ShowComputerCards.yes)
+                if (GetShow() == ShowComputerCards.Yes)
                 {
                     list = InsertionSort(cardStack);
                 }
@@ -794,11 +784,11 @@ namespace Shithead
                     }
 
                     Card card = pos.GetInfo();
-                    if (GetShow() == Game.ShowComputerCards.no)
+                    if (GetShow() == ShowComputerCards.No)
                     {
                         card.SetBackCard();
                     }
-                    if (GetShow() == Game.ShowComputerCards.yes)
+                    if (GetShow() == ShowComputerCards.Yes)
                     {
                         card.SetCard(card.GetPictureBox());
                     }
@@ -808,7 +798,7 @@ namespace Shithead
 
                     if (pos.GetNext() != null)
                     {
-                        if (GetShow() == Game.ShowComputerCards.yes)
+                        if (GetShow() == ShowComputerCards.Yes)
                         {
                             if (card.GetNum() == pos.GetNext().GetInfo().GetNum())
                             {
@@ -873,7 +863,7 @@ namespace Shithead
             {
                 Card card = stack.Pop();
            
-                    card.PushStackLastTurn(Card.Undo.throwTen);
+                    card.PushStackLastTurn(Undo.ThrowTen);
              
 
                 PushStackUndo(card);
@@ -945,7 +935,7 @@ namespace Shithead
                 {
                   
 
-                    SameNum.PushStackLastTurn(Card.Undo.playerThrowCard);
+                    SameNum.PushStackLastTurn(Undo.PlayerThrowCard);
 
                     PushStackUndo(SameNum);
                     Drag(SameNum);
@@ -1011,7 +1001,7 @@ namespace Shithead
             return newS;
         }
 
-        public void Undo()
+        public void UndoFunc()
         {
             //פעולה ראשית שאחראית על כפתור החזרה
             //הפעולה מחזירה את מהלך המשחק למצב שבו המשתמש לא ביצע את התור האחרון שלו
@@ -1022,7 +1012,7 @@ namespace Shithead
             {
               if (stack.Top().GetNum() == 8) // שחקן זרק שמונה
                 {                  
-                    if (stack.Top().GetStackLastTurn().Top() == Card.Undo.playerThrowCard)
+                    if (stack.Top().GetStackLastTurn().Top() == Undo.PlayerThrowCard)
                     {
                         card = UndoPlayerDrawCard(card);
                         UndoPlayerThrowCard(card);
@@ -1031,7 +1021,7 @@ namespace Shithead
                 }
             }  
             
-            if (card.GetStackLastTurn().Top() == Card.Undo.computerTakeCard) // (מחשב (6
+            if (card.GetStackLastTurn().Top() == Undo.ComputerTakeCard) // (מחשב (6
             {
                card=UndoTakeCards(card);
                if (card == null)
@@ -1039,7 +1029,7 @@ namespace Shithead
                card = UndoPlayerDrawCard(card);
             }
 
-            if (card.GetStackLastTurn().Top() == Card.Undo.throwTen)
+            if (card.GetStackLastTurn().Top() == Undo.ThrowTen)
             {
                 card = UndoThrowTen(card);
                 if (card == null)
@@ -1059,7 +1049,7 @@ namespace Shithead
                 bool boolian = true;
                 while (boolian && stack.Top().GetNum() == 8)
                 {                  
-                    if (stack.Top().GetStackLastTurn().Top() == Card.Undo.computerThrowCard)
+                    if (stack.Top().GetStackLastTurn().Top() == Undo.ComputerThrowCard)
                     {
                         card = UndoComputerDrawCard(card);
                         card = UndoComputerThrowCard(card);
@@ -1070,7 +1060,7 @@ namespace Shithead
             }  
 
 
-            if (card.GetStackLastTurn().Top() == Card.Undo.playerTakeCard) //שחקן
+            if (card.GetStackLastTurn().Top() == Undo.PlayerTakeCard) //שחקן
             {
                 UndoTakeCards(card);              
                     return;
@@ -1086,9 +1076,9 @@ namespace Shithead
             }
             else
             {
-                if (undo.Top().GetStackLastTurn().Top() == Card.Undo.throwTen)
+                if (undo.Top().GetStackLastTurn().Top() == Undo.ThrowTen)
                 {
-                    Undo();
+                    UndoFunc();
                 }
             }
 
@@ -1097,7 +1087,7 @@ namespace Shithead
         public Card UndoTakeCards(Card card)
         {
             //ביצוע פעולת החזור במקרה שנלחץ קח קלפים 
-            while (card.GetStackLastTurn().Top() == Card.Undo.computerTakeCard)
+            while (card.GetStackLastTurn().Top() == Undo.ComputerTakeCard)
             {
              PushStack(card);
              GetCardStackComputer().FindCardAndRemove(GetCardStackComputer().GetList(), card.GetPictureBox());
@@ -1116,9 +1106,9 @@ namespace Shithead
 
             }
 
-            if (card.GetStackLastTurn().Top() == Card.Undo.playerTakeCard)
+            if (card.GetStackLastTurn().Top() == Undo.PlayerTakeCard)
             {
-                while (card.GetStackLastTurn().Top() == Card.Undo.playerTakeCard)
+                while (card.GetStackLastTurn().Top() == Undo.PlayerTakeCard)
                 {
                     PushStack(card);
 
@@ -1151,7 +1141,7 @@ namespace Shithead
         public Card UndoThrowTen(Card card)
         {
             //ביצוע פעולת החזור במקרה שנזרק הקלף 10
-            while (card.GetStackLastTurn().Top() == Card.Undo.throwTen)
+            while (card.GetStackLastTurn().Top() == Undo.ThrowTen)
             {
                 PushStack(card);
                 card.GetPictureBox().Location = new Point(700, 300);
@@ -1174,7 +1164,7 @@ namespace Shithead
         public Card UndoComputerDrawCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהמחשב שלף קלף
-            while (card.GetStackLastTurn().Top() == Card.Undo.drawCard) //קלף שהמחשב שלף
+            while (card.GetStackLastTurn().Top() == Undo.DrawCard) //קלף שהמחשב שלף
             {
                 cardStackComputer.AddTOTopQueue(GetCardStackComputer().GetQueue(), card);              
                 card.GetPictureBox().Location = new Point(350, 50);
@@ -1199,7 +1189,7 @@ namespace Shithead
         public Card UndoPlayerDrawCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהשחקן שלף קלף
-            while (card.GetStackLastTurn().Top() == Card.Undo.drawCard) //קלף שהשחקן שלף
+            while (card.GetStackLastTurn().Top() == Undo.DrawCard) //קלף שהשחקן שלף
             {
                 cardStackPlayer.AddTOTopQueue(GetCardStackPlayer().GetQueue(), card);
                 card.GetPictureBox().Location = new Point(350, 600);
@@ -1214,7 +1204,7 @@ namespace Shithead
                     GetCardStackPlayer().FindCardAndRemove(GetCardStackPlayer().GetList(), card.GetPictureBox());
                 }
 
-                if (level == Level.hard)
+                if (Level == Level.Hard)
                 {
                     GetCardStackPlayer().FindCardAndRemove(memory, card.GetPictureBox());
                 }
@@ -1230,7 +1220,7 @@ namespace Shithead
         public Card UndoComputerThrowCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהמחשב זרק קלף לערימת הקלפים
-            while (card.GetStackLastTurn().Top() == Card.Undo.computerThrowCard)//קלף שהמחשב זרק
+            while (card.GetStackLastTurn().Top() == Undo.ComputerThrowCard)//קלף שהמחשב זרק
             {
                 if (!stack.IsEmpty())
                 {
@@ -1248,7 +1238,7 @@ namespace Shithead
         public void UndoPlayerThrowCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהשחקן זרק קלף לערימת הקלפים
-            while (card.GetStackLastTurn().Top() == Card.Undo.playerThrowCard)//קלף שהמחשב זרק
+            while (card.GetStackLastTurn().Top() == Undo.PlayerThrowCard)//קלף שהמחשב זרק
             {
                 if (!stack.IsEmpty())
                 {
@@ -1393,14 +1383,15 @@ namespace Shithead
             {
                 if (cardStackComputer.GetListFinal().IsEmpty() && cardStackComputer.GetList().IsEmpty())
                 {
-                    SetPointsComputer(2);
+                    PointsComputer = 2;
+                   
 
                     if (cardStackPlayer.GetQueue().IsEmpty())
                     {
                         SetPointsPlayer(1);
                     }
 
-                    mainGame.End(GetPointsComputer(), GetPointsPlayer());
+                    mainGame.End(PointsComputer, GetPointsPlayer());
                     this.checkWin = true;                    
                     return true;                  
                 }
@@ -1409,9 +1400,10 @@ namespace Shithead
                     SetPointsPlayer(2);
                     if (cardStackComputer.GetQueue().IsEmpty())
                     {
-                        SetPointsComputer(1);
+                        PointsComputer=1;
                     }
-                    mainGame.End(GetPointsComputer(), GetPointsPlayer());
+
+                    mainGame.End(PointsComputer, GetPointsPlayer());
                     this.checkWin = true;
                     return true;
                 }

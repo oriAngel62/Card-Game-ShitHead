@@ -150,3 +150,17 @@ C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithea
 C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.csproj.CopyComplete
 C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.exe
 C:\projects\אורי אנג'ל פרויקט במחשבים 2016\Shithead\Shithead\obj\x86\Debug\Shithead.pdb
+C:\Users\ori\Desktop\card game\Shithead\bin\Debug\Shithead.exe
+C:\Users\ori\Desktop\card game\Shithead\bin\Debug\Shithead.pdb
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.csprojAssemblyReference.cache
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.End.resources
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.instructions.resources
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.Main_Game.resources
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.Properties.Resources.resources
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.Start.resources
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.Table_of_records.resources
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.csproj.GenerateResource.cache
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.csproj.CoreCompileInputs.cache
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.csproj.CopyComplete
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.exe
+C:\Users\ori\Desktop\card game\Shithead\obj\x86\Debug\Shithead.pdb

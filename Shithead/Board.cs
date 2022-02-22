@@ -4,10 +4,11 @@ using System.Text;
 using Unit4.CollectionsLib;
 using System.Drawing;
 using System.Windows.Forms;
+using Shithead.Enums;
 
 namespace Shithead
 {
-    class Board
+    public class Board
     {
         private Game game;//החזקת כל הקלפים 
         static Main_Game mainGame; //תכונה סטטית לצורך שימוש בפעולות המחלקה
@@ -97,7 +98,7 @@ namespace Shithead
                 Card cardPlayer = game.GetCardStackPlayer().GetQueue().Remove();
 
                 cardComputer.GetPictureBox().Location = new Point(x, 50);
-                if (game.GetShow() == Game.ShowComputerCards.yes)
+                if (game.GetShow() == ShowComputerCards.Yes)
                 {
                     cardComputer.SetCard(cardComputer.GetPictureBox());
                 }

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Shithead
 {
-    class Card_Stack
+    public class Card_Stack
     {
 
         private Queue<Card> queue = new Queue<Card>(); // הקופה שמכילה את הקלפים של כל שחקן לאחר חלוקתם

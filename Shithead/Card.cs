@@ -4,16 +4,16 @@ using System.Text;
 using Unit4.CollectionsLib;
 using System.Drawing;
 using System.Windows.Forms;
+using Shithead.Enums;
 
 namespace Shithead
 {
-    class Card 
+    public class Card 
     {
         private int x; //ערך האיקס של מיקום הקלף
         private int y;//ערך הווי של מיקום הקלף
         private int num;//ערך הקלף
-        public enum Shape { D, H, S, C };//צורת הקלף
-        private Shape shape;
+        public Shape shape;
         static Main_Game mainGame; //תכונה סטטית לצורך שימוש בפעולות המחלקה
         private bool isDraggingFromListFinal = false;// האם אפשר לגרור את הקלף מהקלפים שעל השולחן
         private PictureBox pictureBox;// תמונה של הקלף
@@ -21,7 +21,7 @@ namespace Shithead
         private bool isDragging = false; //האם הקלף ניתן לגרירה
         private int oldMouseX;// מיקום איקס קודם של הקלף
         private int oldMouseY;//מיקום ויי קודם של הקלף        
-        public enum Undo { drawCard, computerThrowCard, playerThrowCard, computerTakeCard, playerTakeCard, throwTen}; // הפעולות שמהם אפשר ללחוץ על הלחצן חזור
+        
         private Stack<Undo> lastTurn=new Stack<Undo>(); //מחסנית לשמירת כל המצבים שבהם היה הקלף
         private bool backFinal; // האם הקלף עם הפנים כלפי מטה
 
@@ -258,7 +258,7 @@ namespace Shithead
                             }                           
                         }
 
-                        PushStackLastTurn(Undo.playerThrowCard);
+                        PushStackLastTurn(Undo.PlayerThrowCard);
                         game.PushStack(card);
                         game.PushStackUndo(card); 
 
