@@ -5,11 +5,13 @@ using Unit4.CollectionsLib;
 using System.Drawing;
 using System.Windows.Forms;
 using Shithead.Enums;
+using System.IO;
 
 namespace Shithead
 {
     public class Card 
     {
+        private static readonly string IMAGES_FOLDER_PATH = Path.Combine(Environment.CurrentDirectory, "Images");
         private int x; //ערך האיקס של מיקום הקלף
         private int y;//ערך הווי של מיקום הקלף
         private int num;//ערך הקלף
@@ -78,7 +80,6 @@ namespace Shithead
       
         public Card(int num, Shape sh) //פעולה הבונה קלף לפי מספר וצורה
         {
-
             this.pictureBox = new PictureBox();
 
             this.num = num;
@@ -87,7 +88,7 @@ namespace Shithead
             pictureBox.Size = new Size(75, 109);
 
 
-            pictureBox.Image = Image.FromFile("BackCard.PNG");
+            pictureBox.Image = Image.FromFile($"Images/BackCard.PNG");
 
             this.pictureBox.MouseUp += new MouseEventHandler(PB_MouseUp);
             this.pictureBox.MouseDown += new MouseEventHandler(PB_MouseDown);
@@ -97,12 +98,12 @@ namespace Shithead
         public void SetCard(PictureBox PB)//עדכון תכונות התמונה
         {
 
-            PB.Image = Image.FromFile(num + shape.ToString() + ".PNG");
+            PB.Image = Image.FromFile($"Images/{num}{shape.ToString()}.PNG");
         }
 
         public void SetBackCard()//הפיכת קלף מהפנים כלפי מעלה לפנים כלפי מטה
         {
-            pictureBox.Image = Image.FromFile("BackCard.PNG");
+            pictureBox.Image = Image.FromFile("Images/BackCard.PNG");
         }
 
         public void SetIsDraggingFromListFinal(bool boolian)//עדכון אפשרות גרירה מהקלפים שנמצאים על השולחן

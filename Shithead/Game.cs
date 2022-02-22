@@ -228,14 +228,14 @@ namespace Shithead
 
             PictureBox logo = new PictureBox();            
             f.Controls.Add(logo);
-            logo.Image = Image.FromFile("logo.PNG");          
+            logo.Image = Image.FromFile("Images/logo.PNG");          
             logo.Size = new Size(178, 73);
             logo.Location = new Point(5,5);
             logo.BringToFront();
 
             PictureBox specialCards = new PictureBox();
             f.Controls.Add(specialCards);
-            specialCards.Image = Image.FromFile("specialCards.PNG");
+            specialCards.Image = Image.FromFile("Images/specialCards.PNG");
             specialCards.Size = new Size(400, 216);
             specialCards.Location = new Point(900, 250);
             specialCards.BringToFront();
