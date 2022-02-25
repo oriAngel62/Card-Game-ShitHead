@@ -68,7 +68,7 @@ namespace Shithead
             Node<Card> pos = list.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetPictureBox().Equals(picturebox))
+                if (pos.GetInfo().PictureBox.Equals(picturebox))
                 {
                     Card c = pos.GetInfo();
                     if (list != null)
@@ -89,7 +89,7 @@ namespace Shithead
             while (pos != null)
             {
                 Card c0 = pos.GetInfo();
-                if (pos.GetInfo().GetPictureBox().Equals(picturebox))
+                if (pos.GetInfo().PictureBox.Equals(picturebox))
                 {
                     Card c = pos.GetInfo();
                     return c;
@@ -120,7 +120,7 @@ namespace Shithead
             Node<Card> pos = list.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetPictureBox().Equals(card.GetPictureBox()))
+                if (pos.GetInfo().PictureBox.Equals(card.PictureBox))
                 {
                     list.Remove(pos);
 
@@ -177,7 +177,7 @@ namespace Shithead
             Node<Card> pos = list.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetPictureBox().Equals(picturebox))
+                if (pos.GetInfo().PictureBox.Equals(picturebox))
                     return true;
                 pos = pos.GetNext();
             }
@@ -191,7 +191,7 @@ namespace Shithead
             Node<Card> pos = list.GetFirst();
             while (pos != null)
             {
-                if (card.GetPictureBox().Equals(pos.GetInfo().GetPictureBox()))
+                if (card.PictureBox.Equals(pos.GetInfo().PictureBox))
                 {
                     Card SameCard = pos.GetInfo();
                     list.Remove(pos);
@@ -210,7 +210,7 @@ namespace Shithead
             Node<Card> pos = list.GetFirst();
             while (pos != null)
             {
-                if (card.GetNum() == pos.GetInfo().GetNum())
+                if (card.NumValue == pos.GetInfo().NumValue)
                 {
                     Card SameCard = pos.GetInfo();
                     list.Remove(pos);
@@ -230,7 +230,7 @@ namespace Shithead
             Node<Card> pos = list.GetFirst();
             while (pos != null)
             {
-                if (card.GetNum() == pos.GetInfo().GetNum())
+                if (card.NumValue == pos.GetInfo().NumValue)
                 {
                     count++;
                 }
@@ -264,12 +264,12 @@ namespace Shithead
 
             while (pos != null)
             {
-                if (minNum > pos.GetInfo().GetNum() 
+                if (minNum > pos.GetInfo().NumValue 
                     && !IsSpecial(pos.GetInfo()) 
                     && !pos.GetInfo().BackFinal)
                 {
                     minCard = pos.GetInfo();
-                    minNum = pos.GetInfo().GetNum();
+                    minNum = pos.GetInfo().NumValue;
                 }
 
                 pos = pos.GetNext();
@@ -291,12 +291,12 @@ namespace Shithead
 
             while (pos != null)
             {
-                if (maxNum < pos.GetInfo().GetNum() 
+                if (maxNum < pos.GetInfo().NumValue 
                     && !IsSpecial(pos.GetInfo()) 
                     && !pos.GetInfo().BackFinal)
                 {
                     maxCard = pos.GetInfo();
-                    maxNum = pos.GetInfo().GetNum();
+                    maxNum = pos.GetInfo().NumValue;
                 }
 
                 pos = pos.GetNext();
@@ -343,7 +343,7 @@ namespace Shithead
             Card special = Special(listComputer, memory, stack);
             if (special != null)
             {
-                if (special.GetNum() == 7)
+                if (special.NumValue == 7)
                 {
                     return special;
                 }
@@ -354,7 +354,7 @@ namespace Shithead
             {
                 if (stack.IsEmpty())
                 {
-                    if (minCard.GetNum() > maxCardListMemory.GetNum() 
+                    if (minCard.NumValue > maxCardListMemory.NumValue 
                         && !minCard.BackFinal)
                     {
                         return minCard;
@@ -365,7 +365,7 @@ namespace Shithead
                         minCard = MinCard(copy);
                         if (minCard != null)
                         {
-                            if (minCard.GetNum() > maxCardListMemory.GetNum()
+                            if (minCard.NumValue > maxCardListMemory.NumValue
                                 && !minCard.BackFinal)
                             {
                                 return minCard;
@@ -379,8 +379,8 @@ namespace Shithead
 
                 else
                 {
-                    if (minCard.GetNum() > maxCardListMemory.GetNum() 
-                        && minCard.GetNum() >= stack.Top().GetNum() 
+                    if (minCard.NumValue > maxCardListMemory.NumValue 
+                        && minCard.NumValue >= stack.Top().NumValue 
                         && !minCard.BackFinal)
                     {
                         return minCard;
@@ -390,8 +390,8 @@ namespace Shithead
                         minCard = MinCard(copy);
                         if (minCard != null)
                         {
-                            if (minCard.GetNum() > maxCardListMemory.GetNum() 
-                                && minCard.GetNum() >= stack.Top().GetNum() 
+                            if (minCard.NumValue > maxCardListMemory.NumValue 
+                                && minCard.NumValue >= stack.Top().NumValue 
                                 && !minCard.BackFinal)
                             {
                                 return minCard;
@@ -417,7 +417,7 @@ namespace Shithead
         public bool IsSpecial(Card card)
         {
             //הפעולה מקבל קלף ובודקת האם הקלף הוא קלף מיוחד כלומר אחד מהקלפים 2,10,3,7
-            if ((card.GetNum() == 10) || (card.GetNum() == 2) || (card.GetNum() == 3) || (card.GetNum() == 7))
+            if ((card.NumValue == 10) || (card.NumValue == 2) || (card.NumValue == 3) || (card.NumValue == 7))
             {
                 return true;
             }
@@ -461,9 +461,9 @@ namespace Shithead
 
             if (!stack.IsEmpty() && maxCardListMemory != null && seven != null)
             {
-                if ((maxCardListMemory.GetNum() < 7 || count2 > count1) && stack.Top().GetNum() <= 7)
+                if ((maxCardListMemory.NumValue < 7 || count2 > count1) && stack.Top().NumValue <= 7)
                 {
-                    if (stack.Top().GetNum() == 3)
+                    if (stack.Top().NumValue == 3)
                     {
                         bool boolian = game.TheNumIs3(seven);
                         stack.Pop();
@@ -480,7 +480,7 @@ namespace Shithead
             {
                 if (maxCardListMemory != null)
                 {
-                    if (maxCardListMemory.GetNum() < 7)
+                    if (maxCardListMemory.NumValue < 7)
                     {
                         return seven;
                     }
@@ -496,7 +496,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 7 && !pos.GetInfo().BackFinal)
+                if (pos.GetInfo().NumValue == 7 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -512,7 +512,7 @@ namespace Shithead
             Card three = ThreeInList(listComputer);
             if (!stack.IsEmpty())
             {
-                if (maxCardListMemory.GetNum() < stack.Top().GetNum() && three != null)
+                if (maxCardListMemory.NumValue < stack.Top().NumValue && three != null)
                 {
                     return three;
                 }
@@ -525,7 +525,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 3 && !pos.GetInfo().BackFinal)
+                if (pos.GetInfo().NumValue == 3 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -541,7 +541,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 10 && !pos.GetInfo().BackFinal)
+                if (pos.GetInfo().NumValue == 10 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -558,7 +558,7 @@ namespace Shithead
             Card two = TwoInList(listComputer);
             if (!stack.IsEmpty())
             {
-                if (maxCardListMemory.GetNum() < stack.Top().GetNum() && two != null)
+                if (maxCardListMemory.NumValue < stack.Top().NumValue && two != null)
                 {
                     return two;
                 }
@@ -571,7 +571,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 2 && !pos.GetInfo().BackFinal)
+                if (pos.GetInfo().NumValue == 2 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -622,10 +622,10 @@ namespace Shithead
                 card.Y =cardReplaced.Y;
                 cardReplaced.X = x;
                 cardReplaced.Y = y;
-                card.GetPictureBox().Location = new Point(card.X, card.Y);
-                cardReplaced.GetPictureBox().Location = new Point(x, y);
-                cardReplaced.GetPictureBox().BringToFront();
-                cardReplaced.SetCard(cardReplaced.GetPictureBox());
+                card.PictureBox.Location = new Point(card.X, card.Y);
+                cardReplaced.PictureBox.Location = new Point(x, y);
+                cardReplaced.PictureBox.BringToFront();
+                cardReplaced.SetCard(cardReplaced.PictureBox);
                 InsertCardToList(list, card);
                 RemoveCard(list, cardReplaced);
                 listFinal.Insert(pos, cardReplaced);
@@ -645,10 +645,10 @@ namespace Shithead
                     cardReplaced.X=x;
                     cardReplaced.Y =y;                    
 
-                   card.GetPictureBox().Location = new Point(card.X, card.Y);
-                   cardReplaced.GetPictureBox().Location = new Point(x, y);
-                   cardReplaced.GetPictureBox().BringToFront();
-                   cardReplaced.SetCard(cardReplaced.GetPictureBox());
+                   card.PictureBox.Location = new Point(card.X, card.Y);
+                   cardReplaced.PictureBox.Location = new Point(x, y);
+                   cardReplaced.PictureBox.BringToFront();
+                   cardReplaced.SetCard(cardReplaced.PictureBox);
                    InsertCardToList(list, card);                  
                    RemoveCard(list, cardReplaced);
                    listFinal.Insert(pos, cardReplaced);
@@ -669,7 +669,7 @@ namespace Shithead
             Node<Card> pos = listMemory.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() <= 7)
+                if (pos.GetInfo().NumValue <= 7)
                 {
                     count++;
                 }
@@ -686,7 +686,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 7)
+                if (pos.GetInfo().NumValue == 7)
                 {
                     count++;
                 }

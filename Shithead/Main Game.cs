@@ -191,11 +191,11 @@ namespace Shithead
           {
               end.BackgroundImage = Shithead.Properties.Resources.youLose;
           }
-          game.GetStack().Top().SetCard(game.GetStack().Top().GetPictureBox());
-          game.GetStack().Top().GetPictureBox().BringToFront();          
+          game.GetStack().Top().SetCard(game.GetStack().Top().PictureBox);
+          game.GetStack().Top().PictureBox.BringToFront();          
           Refresh();
           System.Threading.Thread.Sleep(300);
-          game.GetStack().Top().GetPictureBox().BringToFront();
+          game.GetStack().Top().PictureBox.BringToFront();
           end.Show();        
           this.Close();
       }     

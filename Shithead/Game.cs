@@ -214,14 +214,14 @@ namespace Shithead
             for (int i = 0; i < 26; i++)
             {
 
-                a[i].GetPictureBox().Location = new Point(350, 600);
+                a[i].PictureBox.Location = new Point(350, 600);
                 CardStackPlayer.GetQueue().Insert(a[i]);
-                f.Controls.Add(a[i].GetPictureBox());
+                f.Controls.Add(a[i].PictureBox);
 
-                a[i + 26].GetPictureBox().Location = new Point(350, 50);
+                a[i + 26].PictureBox.Location = new Point(350, 50);
 
                 CardStackComputer.GetQueue().Insert(a[i + 26]);
-                f.Controls.Add(a[i + 26].GetPictureBox());
+                f.Controls.Add(a[i + 26].PictureBox);
 
 
             }
@@ -249,21 +249,21 @@ namespace Shithead
             if (stack.IsEmpty())
                 return true;
 
-            if ((card.GetNum() == 10) || (card.GetNum() == 2) || (card.GetNum() == 3))
+            if ((card.NumValue == 10) || (card.NumValue == 2) || (card.NumValue == 3))
             {
                 return true;
             }
 
-            if (stack.Top().GetNum() == 3)
+            if (stack.Top().NumValue == 3)
                 return TheNumIs3(card);
 
 
-            if (card.GetNum() >= stack.Top().GetNum() && stack.Top().GetNum() != 7)
+            if (card.NumValue >= stack.Top().NumValue && stack.Top().NumValue != 7)
             {
                 return true;
             }
 
-            if (stack.Top().GetNum() == 7 && card.GetNum() <= stack.Top().GetNum())
+            if (stack.Top().NumValue == 7 && card.NumValue <= stack.Top().NumValue)
             {
                 return true;
             }
@@ -296,8 +296,8 @@ namespace Shithead
                     int x = card.X;
                     int y = card.Y;
 
-                    cardPlayer.GetPictureBox().Location = new Point(x, y);
-                    cardPlayer.SetCard(cardPlayer.GetPictureBox());
+                    cardPlayer.PictureBox.Location = new Point(x, y);
+                    cardPlayer.SetCard(cardPlayer.PictureBox);
                     cardPlayer.X = x;
                     cardPlayer.Y = y;
 
@@ -321,7 +321,7 @@ namespace Shithead
                     int x = card.X;
                     int y = card.Y;
 
-                    cardComputer.GetPictureBox().Location = new Point(x, y);                
+                    cardComputer.PictureBox.Location = new Point(x, y);                
                     cardComputer.X = x;
                     cardComputer.Y = y;
 
@@ -338,7 +338,7 @@ namespace Shithead
         {
             //הפעולה מקבלת קלף וגוררת אותו אל ערימת הקלפים
             bool booldrag = true;
-            PictureBox picturebox = card.GetPictureBox();
+            PictureBox picturebox = card.PictureBox;
             int hefreshx = 700 - card.X;
             int hefreshy = 300 - card.Y;
             hefreshx = hefreshx / 20;
@@ -359,25 +359,25 @@ namespace Shithead
                 }
             }
 
-            if (card.GetNum() == 3)
+            if (card.NumValue == 3)
             {
-                card.GetPictureBox().Location = new Point(713, 300);
+                card.PictureBox.Location = new Point(713, 300);
                 if (!stack.IsEmpty())
                 {
-                    if (stack.Top().GetNum() == 3)
+                    if (stack.Top().NumValue == 3)
                     {
-                        stack.Top().GetPictureBox().Location = new Point(710, 300);
-                        card.GetPictureBox().Location = new Point(720, 300);
+                        stack.Top().PictureBox.Location = new Point(710, 300);
+                        card.PictureBox.Location = new Point(720, 300);
                         if (!stack.IsEmpty())
                         {
                             Card c = stack.Pop();
                             if (!stack.IsEmpty())
                             {
-                                if (stack.Top().GetNum() == 3)
+                                if (stack.Top().NumValue == 3)
                                 {
-                                    stack.Top().GetPictureBox().Location = new Point(710, 300);
-                                    c.GetPictureBox().Location = new Point(720, 300);
-                                    card.GetPictureBox().Location = new Point(730, 300);
+                                    stack.Top().PictureBox.Location = new Point(710, 300);
+                                    c.PictureBox.Location = new Point(720, 300);
+                                    card.PictureBox.Location = new Point(730, 300);
 
                                 }
                                 PushStack(c);
@@ -489,7 +489,7 @@ namespace Shithead
                 {
                     checkInMemory = false;
                   
-                    PictureBox picturebox = card.GetPictureBox();
+                    PictureBox picturebox = card.PictureBox;
                 
                     if (!card.BackFinal)
                     {
@@ -499,10 +499,10 @@ namespace Shithead
                         Drag(card);
                     
                         GetCardStackComputer().RemoveCard(listComputer, card);
-                        if ((card.GetNum() == 10))
+                        if ((card.NumValue == 10))
                         {
-                            card.SetCard(card.GetPictureBox());
-                            card.GetPictureBox().BringToFront();
+                            card.SetCard(card.PictureBox);
+                            card.PictureBox.BringToFront();
                             mainGame.Refresh();
                             TheNumIs10();
                         }
@@ -510,7 +510,9 @@ namespace Shithead
                         boolian = true;
 
 
-                        if ((card.GetNum() == 8) || (card.GetNum() == 10) || FourCardsHaveTheSameNumber(this.stack))
+                        if ((card.NumValue == 8) 
+                            || (card.NumValue == 10) 
+                            || FourCardsHaveTheSameNumber(this.stack))
                         {
                             extraTurn = true;
                         }
@@ -577,8 +579,8 @@ namespace Shithead
 
             if (extraTurn == true)
             {
-                card.SetCard(card.GetPictureBox());
-                card.GetPictureBox().BringToFront();
+                card.SetCard(card.PictureBox);
+                card.PictureBox.BringToFront();
                 mainGame.Refresh();
                 System.Threading.Thread.Sleep(200);
                 mainGame.Refresh();
@@ -640,7 +642,7 @@ namespace Shithead
 
                         while (pos != null)
                         {
-                            pos.GetInfo().SetIsDraggingFromListFinal(false);
+                            pos.GetInfo().IsDraggingFromListFinal = false;
                             pos = pos.GetNext();
                         }
                     }
@@ -670,7 +672,7 @@ namespace Shithead
            
 
 
-                    PictureBox PB = card.GetPictureBox();
+                    PictureBox PB = card.PictureBox;
                     PB.Location = new Point(x, y);
                     x = x + 100;
 
@@ -698,7 +700,7 @@ namespace Shithead
             Node<Card> pos = list.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetPictureBox().Equals(card.GetPictureBox()))
+                if (pos.GetInfo().PictureBox.Equals(card.PictureBox))
                 {
                     list.Remove(pos);
                 }
@@ -734,17 +736,17 @@ namespace Shithead
                     }
 
                     Card card = pos.GetInfo();
-                    card.GetPictureBox().Location = new Point(x, y);
+                    card.PictureBox.Location = new Point(x, y);
                     card.X = x;
                     card.Y = y;
-                    card.SetCard(card.GetPictureBox());
+                    card.SetCard(card.PictureBox);
 
                     if (pos.GetNext() != null)
                     {
-                        if (card.GetNum() == pos.GetNext().GetInfo().GetNum())
+                        if (card.NumValue == pos.GetNext().GetInfo().NumValue)
                         {
                             x = x + 15;
-                            pos.GetNext().GetInfo().GetPictureBox().BringToFront();
+                            pos.GetNext().GetInfo().PictureBox.BringToFront();
 
                         }
                         else
@@ -790,9 +792,9 @@ namespace Shithead
                     }
                     if (GetShow() == ShowComputerCards.Yes)
                     {
-                        card.SetCard(card.GetPictureBox());
+                        card.SetCard(card.PictureBox);
                     }
-                    card.GetPictureBox().Location = new Point(x, y);
+                    card.PictureBox.Location = new Point(x, y);
                     card.X = x;
                     card.Y = y;
 
@@ -800,10 +802,10 @@ namespace Shithead
                     {
                         if (GetShow() == ShowComputerCards.Yes)
                         {
-                            if (card.GetNum() == pos.GetNext().GetInfo().GetNum())
+                            if (card.NumValue == pos.GetNext().GetInfo().NumValue)
                             {
                                 x = x + 15;
-                                pos.GetNext().GetInfo().GetPictureBox().BringToFront();
+                                pos.GetNext().GetInfo().PictureBox.BringToFront();
                             }
                             else
                                 x = x + 100;
@@ -830,7 +832,7 @@ namespace Shithead
             Node<Card> pos = lst.GetFirst();
             while (pos != null && !inList)
             {
-                if (card.GetNum() < pos.GetInfo().GetNum())
+                if (card.NumValue < pos.GetInfo().NumValue)
                     inList = true;
                 else
                 {
@@ -868,9 +870,9 @@ namespace Shithead
 
                 PushStackUndo(card);
 
-                card.GetPictureBox().Visible = false;
+                card.PictureBox.Visible = false;
 
-                card.GetPictureBox().Location = new Point(1000, 300);
+                card.PictureBox.Location = new Point(1000, 300);
             }
         }
 
@@ -886,20 +888,20 @@ namespace Shithead
                 return true;
             }
 
-            if (stack.Top().GetNum() == 3) 
+            if (stack.Top().NumValue == 3) 
             {
                 bool boolian = TheNumIs3(cardAfter3);
                 if (boolian)
                 {
-                    stack.Top().GetPictureBox().Location = new Point(700, 300);
+                    stack.Top().PictureBox.Location = new Point(700, 300);
                 }
                 stack.Push(card);
                 return boolian;
             }
 
-            if (stack.Top().GetNum() != 7)
+            if (stack.Top().NumValue != 7)
             {
-                if (cardAfter3.GetNum() >= stack.Top().GetNum())
+                if (cardAfter3.NumValue >= stack.Top().NumValue)
                 {
                     stack.Push(card);
                     return true;
@@ -907,7 +909,7 @@ namespace Shithead
             }
             else
             {
-                if (cardAfter3.GetNum() <= stack.Top().GetNum())
+                if (cardAfter3.NumValue <= stack.Top().NumValue)
                 {
                     stack.Push(card);
                     return true;
@@ -974,13 +976,13 @@ namespace Shithead
             copy.Push(temp.Pop());
             while (!temp.IsEmpty())
             {
-                if (copy.Top().GetNum() != temp.Top().GetNum())
+                if (copy.Top().NumValue != temp.Top().NumValue)
                     return false;
                 copy.Push(temp.Pop());
             }
 
-            stack.Top().SetCard(stack.Top().GetPictureBox());
-            stack.Top().GetPictureBox().BringToFront();
+            stack.Top().SetCard(stack.Top().PictureBox);
+            stack.Top().PictureBox.BringToFront();
             mainGame.Refresh();           
             TheNumIs10();
             return true;
@@ -1010,9 +1012,9 @@ namespace Shithead
 
             if (!stack.IsEmpty())
             {
-              if (stack.Top().GetNum() == 8) // שחקן זרק שמונה
+              if (stack.Top().NumValue == 8) // שחקן זרק שמונה
                 {                  
-                    if (stack.Top().GetStackLastTurn().Top() == Undo.PlayerThrowCard)
+                    if (stack.Top().LastTurn.Top() == Undo.PlayerThrowCard)
                     {
                         card = UndoPlayerDrawCard(card);
                         UndoPlayerThrowCard(card);
@@ -1021,7 +1023,7 @@ namespace Shithead
                 }
             }  
             
-            if (card.GetStackLastTurn().Top() == Undo.ComputerTakeCard) // (מחשב (6
+            if (card.LastTurn.Top() == Undo.ComputerTakeCard) // (מחשב (6
             {
                card=UndoTakeCards(card);
                if (card == null)
@@ -1029,14 +1031,14 @@ namespace Shithead
                card = UndoPlayerDrawCard(card);
             }
 
-            if (card.GetStackLastTurn().Top() == Undo.ThrowTen)
+            if (card.LastTurn.Top() == Undo.ThrowTen)
             {
                 card = UndoThrowTen(card);
                 if (card == null)
                     return;
                 Card ca = card;
                 card = UndoComputerThrowCard(card);
-                if (card.GetPictureBox().Equals(ca.GetPictureBox()))
+                if (card.PictureBox.Equals(ca.PictureBox))
                 {
                     card = UndoPlayerDrawCard(card);
                 }
@@ -1047,9 +1049,9 @@ namespace Shithead
            if (!stack.IsEmpty())
             {
                 bool boolian = true;
-                while (boolian && stack.Top().GetNum() == 8)
+                while (boolian && stack.Top().NumValue == 8)
                 {                  
-                    if (stack.Top().GetStackLastTurn().Top() == Undo.ComputerThrowCard)
+                    if (stack.Top().LastTurn.Top() == Undo.ComputerThrowCard)
                     {
                         card = UndoComputerDrawCard(card);
                         card = UndoComputerThrowCard(card);
@@ -1060,7 +1062,7 @@ namespace Shithead
             }  
 
 
-            if (card.GetStackLastTurn().Top() == Undo.PlayerTakeCard) //שחקן
+            if (card.LastTurn.Top() == Undo.PlayerTakeCard) //שחקן
             {
                 UndoTakeCards(card);              
                     return;
@@ -1076,7 +1078,7 @@ namespace Shithead
             }
             else
             {
-                if (undo.Top().GetStackLastTurn().Top() == Undo.ThrowTen)
+                if (undo.Top().LastTurn.Top() == Undo.ThrowTen)
                 {
                     UndoFunc();
                 }
@@ -1087,13 +1089,13 @@ namespace Shithead
         public Card UndoTakeCards(Card card)
         {
             //ביצוע פעולת החזור במקרה שנלחץ קח קלפים 
-            while (card.GetStackLastTurn().Top() == Undo.ComputerTakeCard)
+            while (card.LastTurn.Top() == Undo.ComputerTakeCard)
             {
              PushStack(card);
-             GetCardStackComputer().FindCardAndRemove(GetCardStackComputer().GetList(), card.GetPictureBox());
+             GetCardStackComputer().FindCardAndRemove(GetCardStackComputer().GetList(), card.PictureBox);
              
-             card.GetPictureBox().Location = new Point(700, 300);
-             card.GetStackLastTurn().Pop();
+             card.PictureBox.Location = new Point(700, 300);
+             card.LastTurn.Pop();
              
              if (!undo.IsEmpty())
              {
@@ -1106,16 +1108,16 @@ namespace Shithead
 
             }
 
-            if (card.GetStackLastTurn().Top() == Undo.PlayerTakeCard)
+            if (card.LastTurn.Top() == Undo.PlayerTakeCard)
             {
-                while (card.GetStackLastTurn().Top() == Undo.PlayerTakeCard)
+                while (card.LastTurn.Top() == Undo.PlayerTakeCard)
                 {
                     PushStack(card);
 
-                    GetCardStackPlayer().FindCardAndRemove(GetCardStackPlayer().GetList(), card.GetPictureBox());
-                    GetCardStackPlayer().FindCardAndRemove(memory, card.GetPictureBox());
-                    card.GetPictureBox().Location = new Point(700, 300);
-                    card.GetStackLastTurn().Pop();
+                    GetCardStackPlayer().FindCardAndRemove(GetCardStackPlayer().GetList(), card.PictureBox);
+                    GetCardStackPlayer().FindCardAndRemove(memory, card.PictureBox);
+                    card.PictureBox.Location = new Point(700, 300);
+                    card.LastTurn.Pop();
 
 
                     if (!undo.IsEmpty())
@@ -1141,12 +1143,12 @@ namespace Shithead
         public Card UndoThrowTen(Card card)
         {
             //ביצוע פעולת החזור במקרה שנזרק הקלף 10
-            while (card.GetStackLastTurn().Top() == Undo.ThrowTen)
+            while (card.LastTurn.Top() == Undo.ThrowTen)
             {
                 PushStack(card);
-                card.GetPictureBox().Location = new Point(700, 300);
-                card.GetPictureBox().Visible = true;
-                card.GetStackLastTurn().Pop();
+                card.PictureBox.Location = new Point(700, 300);
+                card.PictureBox.Visible = true;
+                card.LastTurn.Pop();
 
                 if (!undo.IsEmpty())
                 {
@@ -1164,22 +1166,22 @@ namespace Shithead
         public Card UndoComputerDrawCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהמחשב שלף קלף
-            while (card.GetStackLastTurn().Top() == Undo.DrawCard) //קלף שהמחשב שלף
+            while (card.LastTurn.Top() == Undo.DrawCard) //קלף שהמחשב שלף
             {
                 cardStackComputer.AddTOTopQueue(GetCardStackComputer().GetQueue(), card);              
-                card.GetPictureBox().Location = new Point(350, 50);
+                card.PictureBox.Location = new Point(350, 50);
                 card.SetBackCard();               
-                Card c = GetCardStackComputer().FindCard(GetCardStackComputer().GetList(), card.GetPictureBox());
+                Card c = GetCardStackComputer().FindCard(GetCardStackComputer().GetList(), card.PictureBox);
                 if (c != null)
                 {
-                    GetCardStackComputer().FindCardAndRemove(GetCardStackComputer().GetList(), card.GetPictureBox());
+                    GetCardStackComputer().FindCardAndRemove(GetCardStackComputer().GetList(), card.PictureBox);
                 }
                 else
                 {
-                    GetCardStackPlayer().FindCardAndRemove(GetCardStackPlayer().GetList(), card.GetPictureBox());
+                    GetCardStackPlayer().FindCardAndRemove(GetCardStackPlayer().GetList(), card.PictureBox);
                 }
 
-                card.GetStackLastTurn().Pop();
+                card.LastTurn.Pop();
                 card = undo.Pop();
             }
             ChangeTextBox();
@@ -1189,27 +1191,27 @@ namespace Shithead
         public Card UndoPlayerDrawCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהשחקן שלף קלף
-            while (card.GetStackLastTurn().Top() == Undo.DrawCard) //קלף שהשחקן שלף
+            while (card.LastTurn.Top() == Undo.DrawCard) //קלף שהשחקן שלף
             {
                 cardStackPlayer.AddTOTopQueue(GetCardStackPlayer().GetQueue(), card);
-                card.GetPictureBox().Location = new Point(350, 600);
+                card.PictureBox.Location = new Point(350, 600);
                 card.SetBackCard();              
-                Card c = GetCardStackComputer().FindCard(GetCardStackComputer().GetList(), card.GetPictureBox());
+                Card c = GetCardStackComputer().FindCard(GetCardStackComputer().GetList(), card.PictureBox);
                 if (c != null)
                 {
-                    GetCardStackComputer().FindCardAndRemove(GetCardStackComputer().GetList(), card.GetPictureBox());
+                    GetCardStackComputer().FindCardAndRemove(GetCardStackComputer().GetList(), card.PictureBox);
                 }
                 else
                 {
-                    GetCardStackPlayer().FindCardAndRemove(GetCardStackPlayer().GetList(), card.GetPictureBox());
+                    GetCardStackPlayer().FindCardAndRemove(GetCardStackPlayer().GetList(), card.PictureBox);
                 }
 
                 if (Level == Level.Hard)
                 {
-                    GetCardStackPlayer().FindCardAndRemove(memory, card.GetPictureBox());
+                    GetCardStackPlayer().FindCardAndRemove(memory, card.PictureBox);
                 }
 
-                card.GetStackLastTurn().Pop();
+                card.LastTurn.Pop();
                 card = undo.Pop();
             }
             ChangeTextBox();
@@ -1220,7 +1222,7 @@ namespace Shithead
         public Card UndoComputerThrowCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהמחשב זרק קלף לערימת הקלפים
-            while (card.GetStackLastTurn().Top() == Undo.ComputerThrowCard)//קלף שהמחשב זרק
+            while (card.LastTurn.Top() == Undo.ComputerThrowCard)//קלף שהמחשב זרק
             {
                 if (!stack.IsEmpty())
                 {
@@ -1229,7 +1231,7 @@ namespace Shithead
                 
                 GetCardStackComputer().InsertCardToList(GetCardStackComputer().GetList(), card);
                
-                card.GetStackLastTurn().Pop();
+                card.LastTurn.Pop();
                 card = undo.Pop();
             }
             return card;
@@ -1238,7 +1240,7 @@ namespace Shithead
         public void UndoPlayerThrowCard(Card card)
         {
             //ביצוע פעולת החזור במקרה שהשחקן זרק קלף לערימת הקלפים
-            while (card.GetStackLastTurn().Top() == Undo.PlayerThrowCard)//קלף שהמחשב זרק
+            while (card.LastTurn.Top() == Undo.PlayerThrowCard)//קלף שהמחשב זרק
             {
                 if (!stack.IsEmpty())
                 {
@@ -1247,7 +1249,7 @@ namespace Shithead
                 }
 
                 GetCardStackPlayer().InsertCardToList(GetCardStackPlayer().GetList(), card);
-                card.GetStackLastTurn().Pop();
+                card.LastTurn.Pop();
 
                 GetCardStackPlayer().InsertCardToList(memory, card);
 
@@ -1276,7 +1278,7 @@ namespace Shithead
             while (pos != null)
             {
                 Card card = pos.GetInfo();
-                if (card.GetNum() != 8)
+                if (card.NumValue != 8)
                 {
                     count = GetCardStackPlayer().HowManyCardsInList(listPlayer, card);
                 }
@@ -1294,7 +1296,8 @@ namespace Shithead
         public bool IsSpecial(Card card)
         {
             //הפעולה מקבלת קלף ובודקת האם הוא קלף מיוחד
-            if ((card.GetNum() == 10) || (card.GetNum() == 2) || (card.GetNum() == 3) || (card.GetNum() == 7))
+            if ((card.NumValue == 10) || (card.NumValue == 2) 
+                || (card.NumValue == 3) || (card.NumValue == 7))
             {
                 return true;
             }
@@ -1306,8 +1309,8 @@ namespace Shithead
             //(הפעולה מקבלת רשימה וקלף ומבצעת את חוקי המשחק כאשר נזרק 10 לערימת הקלפים (הערימה מתרוקנת והשחקן שזרק את הקלף מקבל תור נוסף  
             Drag(card);
             GetCardStackComputer().RemoveCard(list, card);
-            card.SetCard(card.GetPictureBox());
-            card.GetPictureBox().BringToFront();
+            card.SetCard(card.PictureBox);
+            card.PictureBox.BringToFront();
             mainGame.Refresh();           
             TheNumIs10();
             ComputerThrowCard();
@@ -1469,13 +1472,15 @@ namespace Shithead
         public bool IsBetter(Card card, Card cardReplaced)
         {
             //הפעולה מקבלת קלף וקלף מוחלף פוטנציאלי ובודקת האם למחשב כדי להחליף בין הקלפים
-            if (cardReplaced.GetNum() == 10 && card.GetNum() != 10)
+            if (cardReplaced.NumValue == 10 && card.NumValue != 10)
                 return true;
-            if (cardReplaced.GetNum() == 3 && card.GetNum() != 10 && card.GetNum() != 3)
+            if (cardReplaced.NumValue == 3 && card.NumValue != 10 && card.NumValue != 3)
                 return true;
-            if (cardReplaced.GetNum() == 2 && card.GetNum() != 10 && card.GetNum() != 3 && card.GetNum() != 2)
+            if (cardReplaced.NumValue == 2 && card.NumValue != 10 
+                && card.NumValue != 3 && card.NumValue != 2)
                 return true;         
-            if (cardReplaced.GetNum() > card.GetNum() && card.GetNum() != 10 && card.GetNum() != 2 && card.GetNum() != 3)
+            if (cardReplaced.NumValue > card.NumValue && card.NumValue != 10 &&
+                card.NumValue != 2 && card.NumValue != 3)
                 return true;
             return false;
         }

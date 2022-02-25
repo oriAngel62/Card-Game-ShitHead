@@ -62,24 +62,24 @@ namespace Shithead
                 }
                 if (i >= 3)
                 {
-                    CardComputer.SetCard(CardComputer.GetPictureBox());
-                    CardComputer.GetPictureBox().BringToFront();
+                    CardComputer.SetCard(CardComputer.PictureBox);
+                    CardComputer.PictureBox.BringToFront();
 
 
-                    CardPlayer.SetCard(CardPlayer.GetPictureBox());
-                    CardPlayer.GetPictureBox().BringToFront();
+                    CardPlayer.SetCard(CardPlayer.PictureBox);
+                    CardPlayer.PictureBox.BringToFront();
                 }
                 else
                 {
                     CardComputer.BackFinal = true;
                     CardPlayer.BackFinal = true;
                 }
-                CardComputer.GetPictureBox().Location = new Point(x, y1);
+                CardComputer.PictureBox.Location = new Point(x, y1);
                 CardComputer.X = x;
                 CardComputer.Y = y1;
                 game.GetCardStackComputer().InsertCardToList(ListComputerFinal, CardComputer);
 
-                CardPlayer.GetPictureBox().Location = new Point(x, y2);
+                CardPlayer.PictureBox.Location = new Point(x, y2);
                 CardPlayer.X = x;
                 CardPlayer.Y = y2;
                 game.GetCardStackPlayer().InsertCardToList(ListPlayerFinal, CardPlayer);
@@ -97,10 +97,10 @@ namespace Shithead
 
                 Card cardPlayer = game.GetCardStackPlayer().GetQueue().Remove();
 
-                cardComputer.GetPictureBox().Location = new Point(x, 50);
+                cardComputer.PictureBox.Location = new Point(x, 50);
                 if (game.GetShow() == ShowComputerCards.Yes)
                 {
-                    cardComputer.SetCard(cardComputer.GetPictureBox());
+                    cardComputer.SetCard(cardComputer.PictureBox);
                 }
 
                 cardComputer.X = x;
@@ -108,8 +108,8 @@ namespace Shithead
                 game.GetCardStackComputer().InsertCardToList(ListComputer, cardComputer);
 
 
-                cardPlayer.GetPictureBox().Location = new Point(x, 600);
-                cardPlayer.SetCard(cardPlayer.GetPictureBox());
+                cardPlayer.PictureBox.Location = new Point(x, 600);
+                cardPlayer.SetCard(cardPlayer.PictureBox);
                 cardPlayer.X = x;
                 cardPlayer.Y = 600;
                 game.GetCardStackPlayer().InsertCardToList(ListPlayer, cardPlayer);
