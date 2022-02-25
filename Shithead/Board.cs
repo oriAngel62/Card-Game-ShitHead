@@ -71,17 +71,17 @@ namespace Shithead
                 }
                 else
                 {
-                    CardComputer.SetBackFinal(true);
-                    CardPlayer.SetBackFinal(true);
+                    CardComputer.BackFinal = true;
+                    CardPlayer.BackFinal = true;
                 }
                 CardComputer.GetPictureBox().Location = new Point(x, y1);
-                CardComputer.SetX(x);
-                CardComputer.SetY(y1);
+                CardComputer.X = x;
+                CardComputer.Y = y1;
                 game.GetCardStackComputer().InsertCardToList(ListComputerFinal, CardComputer);
 
                 CardPlayer.GetPictureBox().Location = new Point(x, y2);
-                CardPlayer.SetX(x);
-                CardPlayer.SetY(y2);
+                CardPlayer.X = x;
+                CardPlayer.Y = y2;
                 game.GetCardStackPlayer().InsertCardToList(ListPlayerFinal, CardPlayer);
 
                 x = x + 100;
@@ -103,15 +103,15 @@ namespace Shithead
                     cardComputer.SetCard(cardComputer.GetPictureBox());
                 }
 
-                cardComputer.SetX(x);
-                cardComputer.SetY(50);
+                cardComputer.X = x;
+                cardComputer.Y = 50;
                 game.GetCardStackComputer().InsertCardToList(ListComputer, cardComputer);
 
 
                 cardPlayer.GetPictureBox().Location = new Point(x, 600);
                 cardPlayer.SetCard(cardPlayer.GetPictureBox());
-                cardPlayer.SetX(x);
-                cardPlayer.SetY(600);
+                cardPlayer.X = x;
+                cardPlayer.Y = 600;
                 game.GetCardStackPlayer().InsertCardToList(ListPlayer, cardPlayer);
 
                 game.FindSameCard();

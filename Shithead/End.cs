@@ -31,7 +31,7 @@ namespace Shithead
 
 
             g = this.CreateGraphics();           
-            MyText.SetEnd(this);
+            MyText.End=this;
                     
         }
 
@@ -143,8 +143,8 @@ namespace Shithead
         {
             //לחיצה על לחצן שמור ניקוד
             MyText text = new MyText();
-            text.Main1();
-            Table_of_records records = new Table_of_records();
+            text.WriteRecordsToFile();
+            TableOfRecords records = new TableOfRecords();
             records.Show();
             this.Close();
            

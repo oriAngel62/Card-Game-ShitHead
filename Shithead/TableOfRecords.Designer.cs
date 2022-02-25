@@ -1,6 +1,6 @@
 ﻿namespace Shithead
 {
-    partial class Table_of_records
+    partial class TableOfRecords
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            // 
-            // Table_of_records
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Shithead.Properties.Resources.TableOfRecords;
             this.ClientSize = new System.Drawing.Size(959, 693);
-            this.Name = "Table_of_records";
-            this.Text = "Table_of_records";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Table_of_records_Paint);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Table_of_records_MouseClick);
+            this.Name = "TableOfRecords";
+            this.Text = "TableOfRecords";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(TableOfRecords_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(TableOfRecords_MouseClick);
             this.ResumeLayout(false);
 
         }

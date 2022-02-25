@@ -264,7 +264,9 @@ namespace Shithead
 
             while (pos != null)
             {
-                if (minNum > pos.GetInfo().GetNum() && !IsSpecial(pos.GetInfo()) && !pos.GetInfo().GetBackFinal())
+                if (minNum > pos.GetInfo().GetNum() 
+                    && !IsSpecial(pos.GetInfo()) 
+                    && !pos.GetInfo().BackFinal)
                 {
                     minCard = pos.GetInfo();
                     minNum = pos.GetInfo().GetNum();
@@ -289,7 +291,9 @@ namespace Shithead
 
             while (pos != null)
             {
-                if (maxNum < pos.GetInfo().GetNum() && !IsSpecial(pos.GetInfo()) && !pos.GetInfo().GetBackFinal())
+                if (maxNum < pos.GetInfo().GetNum() 
+                    && !IsSpecial(pos.GetInfo()) 
+                    && !pos.GetInfo().BackFinal)
                 {
                     maxCard = pos.GetInfo();
                     maxNum = pos.GetInfo().GetNum();
@@ -350,7 +354,8 @@ namespace Shithead
             {
                 if (stack.IsEmpty())
                 {
-                    if (minCard.GetNum() > maxCardListMemory.GetNum() && !minCard.GetBackFinal())
+                    if (minCard.GetNum() > maxCardListMemory.GetNum() 
+                        && !minCard.BackFinal)
                     {
                         return minCard;
                     }
@@ -360,7 +365,8 @@ namespace Shithead
                         minCard = MinCard(copy);
                         if (minCard != null)
                         {
-                            if (minCard.GetNum() > maxCardListMemory.GetNum() && !minCard.GetBackFinal())
+                            if (minCard.GetNum() > maxCardListMemory.GetNum()
+                                && !minCard.BackFinal)
                             {
                                 return minCard;
                             }
@@ -373,7 +379,9 @@ namespace Shithead
 
                 else
                 {
-                    if (minCard.GetNum() > maxCardListMemory.GetNum() && minCard.GetNum() >= stack.Top().GetNum() && !minCard.GetBackFinal())
+                    if (minCard.GetNum() > maxCardListMemory.GetNum() 
+                        && minCard.GetNum() >= stack.Top().GetNum() 
+                        && !minCard.BackFinal)
                     {
                         return minCard;
                     }
@@ -382,7 +390,9 @@ namespace Shithead
                         minCard = MinCard(copy);
                         if (minCard != null)
                         {
-                            if (minCard.GetNum() > maxCardListMemory.GetNum() && minCard.GetNum() >= stack.Top().GetNum() && !minCard.GetBackFinal())
+                            if (minCard.GetNum() > maxCardListMemory.GetNum() 
+                                && minCard.GetNum() >= stack.Top().GetNum() 
+                                && !minCard.BackFinal)
                             {
                                 return minCard;
                             }
@@ -486,7 +496,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 7 && !pos.GetInfo().GetBackFinal())
+                if (pos.GetInfo().GetNum() == 7 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -515,7 +525,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 3 && !pos.GetInfo().GetBackFinal())
+                if (pos.GetInfo().GetNum() == 3 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -531,7 +541,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 10 && !pos.GetInfo().GetBackFinal())
+                if (pos.GetInfo().GetNum() == 10 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -561,7 +571,7 @@ namespace Shithead
             Node<Card> pos = listComputer.GetFirst();
             while (pos != null)
             {
-                if (pos.GetInfo().GetNum() == 2 && !pos.GetInfo().GetBackFinal())
+                if (pos.GetInfo().GetNum() == 2 && !pos.GetInfo().BackFinal)
                 {
                     return pos.GetInfo();
                 }
@@ -605,14 +615,14 @@ namespace Shithead
             // הפעולה מקבלת את רשימת הקלפים שנמצאת על השולחן, רשימת הקלפים שנמצאת ביד, הקלף שאותו רוצים להחליף והמיקום של הקלף המוחלף. הפעולה מחליפה בין הקלף המחליף והמוחלף 
             Node<Card> pos = listFinal.GetFirst();
 
-            if (pos.GetInfo().GetX() == x && pos.GetInfo().GetY() == y)
+            if (pos.GetInfo().X == x && pos.GetInfo().Y == y)
             {
                 Card card = pos.GetInfo();
-                card.SetX(cardReplaced.GetX());
-                card.SetY(cardReplaced.GetY());
-                cardReplaced.SetX(x);
-                cardReplaced.SetY(y);
-                card.GetPictureBox().Location = new Point(card.GetX(), card.GetY());
+                card.X = cardReplaced.X;
+                card.Y =cardReplaced.Y;
+                cardReplaced.X = x;
+                cardReplaced.Y = y;
+                card.GetPictureBox().Location = new Point(card.X, card.Y);
                 cardReplaced.GetPictureBox().Location = new Point(x, y);
                 cardReplaced.GetPictureBox().BringToFront();
                 cardReplaced.SetCard(cardReplaced.GetPictureBox());
@@ -627,15 +637,15 @@ namespace Shithead
             while (posNext != null)
             {
                 Card ca = posNext.GetInfo();
-                if (posNext.GetInfo().GetX() == x && posNext.GetInfo().GetY() == y)
+                if (posNext.GetInfo().X == x && posNext.GetInfo().Y == y)
                 {
                     Card card = posNext.GetInfo();
-                    card.SetX(cardReplaced.GetX());
-                    card.SetY(cardReplaced.GetY());
-                    cardReplaced.SetX(x);
-                    cardReplaced.SetY(y);                    
+                    card.X = cardReplaced.X;
+                    card.Y = cardReplaced.Y;
+                    cardReplaced.X=x;
+                    cardReplaced.Y =y;                    
 
-                   card.GetPictureBox().Location = new Point(card.GetX(), card.GetY());
+                   card.GetPictureBox().Location = new Point(card.X, card.Y);
                    cardReplaced.GetPictureBox().Location = new Point(x, y);
                    cardReplaced.GetPictureBox().BringToFront();
                    cardReplaced.SetCard(cardReplaced.GetPictureBox());

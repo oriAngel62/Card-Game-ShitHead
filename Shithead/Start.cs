@@ -37,7 +37,7 @@ namespace Shithead
         private void button4_Click(object sender, EventArgs e)
         {
             //לחצן טבלת שיאים
-            Table_of_records a = new Table_of_records();
+            TableOfRecords a = new TableOfRecords();
             a.Show();            
         }
 

@@ -275,7 +275,7 @@ namespace Shithead
         public void DrawCard(Card card)
         {
             //הפעולה שולפת קלף מהקופה בהתאם לקלף שהיא מקבלת 
-            if (card.GetY() == 600)
+            if (card.Y == 600)
             {
                 List<Card> listPlayer;
                 if (GetCardStackPlayer().GetList().IsEmpty())
@@ -293,13 +293,13 @@ namespace Shithead
                 {
                     Card cardPlayer = this.cardStackPlayer.GetQueue().Remove();
 
-                    int x = card.GetX();
-                    int y = card.GetY();
+                    int x = card.X;
+                    int y = card.Y;
 
                     cardPlayer.GetPictureBox().Location = new Point(x, y);
                     cardPlayer.SetCard(cardPlayer.GetPictureBox());
-                    cardPlayer.SetX(x);
-                    cardPlayer.SetY(y);
+                    cardPlayer.X = x;
+                    cardPlayer.Y = y;
 
                     this.cardStackPlayer.InsertCardToList(listPlayer, cardPlayer);                   
                     cardPlayer.PushStackLastTurn(Undo.DrawCard);
@@ -318,12 +318,12 @@ namespace Shithead
                 {
                     Card cardComputer = this.cardStackComputer.GetQueue().Remove();
 
-                    int x = card.GetX();
-                    int y = card.GetY();
+                    int x = card.X;
+                    int y = card.Y;
 
                     cardComputer.GetPictureBox().Location = new Point(x, y);                
-                    cardComputer.SetX(x);
-                    cardComputer.SetY(y);
+                    cardComputer.X = x;
+                    cardComputer.Y = y;
 
                     this.cardStackPlayer.InsertCardToList(listComputer, cardComputer);
                     cardComputer.PushStackLastTurn(Undo.DrawCard);               
@@ -339,12 +339,12 @@ namespace Shithead
             //הפעולה מקבלת קלף וגוררת אותו אל ערימת הקלפים
             bool booldrag = true;
             PictureBox picturebox = card.GetPictureBox();
-            int hefreshx = 700 - card.GetX();
-            int hefreshy = 300 - card.GetY();
+            int hefreshx = 700 - card.X;
+            int hefreshy = 300 - card.Y;
             hefreshx = hefreshx / 20;
             hefreshy = hefreshy / 20;
 
-            picturebox.Location = new Point(card.GetX(), card.GetY());
+            picturebox.Location = new Point(card.X, card.Y);
 
             while (((picturebox.Location.X != 700 || picturebox.Location.Y != 300) && booldrag))
             {
@@ -417,7 +417,7 @@ namespace Shithead
                 {
                     while (pos != null)
                     {
-                        pos.GetInfo().SetBackFinal(false);
+                        pos.GetInfo().BackFinal = false;
                         pos = pos.GetNext();
                     }
                 }
@@ -491,7 +491,7 @@ namespace Shithead
                   
                     PictureBox picturebox = card.GetPictureBox();
                 
-                    if (!card.GetBackFinal())
+                    if (!card.BackFinal)
                     {
                         card.PushStackLastTurn(Undo.ComputerThrowCard);
                       
@@ -662,8 +662,8 @@ namespace Shithead
                     }
 
                     Card card = stack.Pop();
-                    card.SetX(x);
-                    card.SetY(y);
+                    card.X = x;
+                    card.Y = y;
                     cardStackComputer.InsertCardToList(cardStackComputer.GetList(), card);              
                     PushStackUndo(card);                  
                     card.PushStackLastTurn(Undo.ComputerTakeCard);
@@ -735,8 +735,8 @@ namespace Shithead
 
                     Card card = pos.GetInfo();
                     card.GetPictureBox().Location = new Point(x, y);
-                    card.SetX(x);
-                    card.SetY(y);
+                    card.X = x;
+                    card.Y = y;
                     card.SetCard(card.GetPictureBox());
 
                     if (pos.GetNext() != null)
@@ -793,8 +793,8 @@ namespace Shithead
                         card.SetCard(card.GetPictureBox());
                     }
                     card.GetPictureBox().Location = new Point(x, y);
-                    card.SetX(x);
-                    card.SetY(y);
+                    card.X = x;
+                    card.Y = y;
 
                     if (pos.GetNext() != null)
                     {
@@ -1329,7 +1329,7 @@ namespace Shithead
 
                 if (minCard != null)
                 {
-                    if (IsBigger(stack, minCard) && !IsSpecial(minCard) && !minCard.GetBackFinal())
+                    if (IsBigger(stack, minCard) && !IsSpecial(minCard) && !minCard.BackFinal)
                     {
                         return minCard;
                     }
@@ -1440,7 +1440,7 @@ namespace Shithead
                 {
                     if (IsBetter(posFinal.GetInfo(),pos.GetInfo()))
                     {
-                        GetCardStackComputer().FindCardAcordingToLocation(ListComputerFinal, ListComputer, pos.GetInfo(), posFinal.GetInfo().GetX(), posFinal.GetInfo().GetY());
+                        GetCardStackComputer().FindCardAcordingToLocation(ListComputerFinal, ListComputer, pos.GetInfo(), posFinal.GetInfo().X, posFinal.GetInfo().Y);
                         pos = ListComputer.GetFirst();
                         posFinal = ListComputerFinal.GetFirst();
                         

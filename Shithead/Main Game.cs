@@ -29,8 +29,8 @@ namespace Shithead
             CS2 = new Card_Stack();
             game = new Game(CS1, CS2, this);
             board = new Board(game);
-            Card.SetGame(game);
-            Card.SetMainGame(this);
+            Card.Game = game;
+            Card.MainGame = this;
             Game.SetMainGame(this);
             Board.SetMainGame(this);                             
             game.SetLevel(Level.Normal);
@@ -255,7 +255,7 @@ namespace Shithead
 
       private void טבלתשיאיםToolStripMenuItem_Click(object sender, EventArgs e)
       {
-          Table_of_records a = new Table_of_records();
+          TableOfRecords a = new TableOfRecords();
           a.Show();
       }
 

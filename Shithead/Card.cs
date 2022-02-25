@@ -10,62 +10,21 @@ using System.IO;
 namespace Shithead
 {
     public class Card 
-    {
-        private static readonly string IMAGES_FOLDER_PATH = Path.Combine(Environment.CurrentDirectory, "Images");
-        private int x; //ערך האיקס של מיקום הקלף
-        private int y;//ערך הווי של מיקום הקלף
+    { 
         private int num;//ערך הקלף
+        public int X { get; set; }
+        public int Y { get; set; }
         public Shape shape;
-        static Main_Game mainGame; //תכונה סטטית לצורך שימוש בפעולות המחלקה
+        public static Main_Game MainGame { get; set; }
         private bool isDraggingFromListFinal = false;// האם אפשר לגרור את הקלף מהקלפים שעל השולחן
         private PictureBox pictureBox;// תמונה של הקלף
-        static Game game; //תכונה סטטית לצורך שימוש בפעולות המחלקה
+        public static Game Game { get; set; } //תכונה סטטית לצורך שימוש בפעולות המחלקה
         private bool isDragging = false; //האם הקלף ניתן לגרירה
         private int oldMouseX;// מיקום איקס קודם של הקלף
         private int oldMouseY;//מיקום ויי קודם של הקלף        
         
         private Stack<Undo> lastTurn=new Stack<Undo>(); //מחסנית לשמירת כל המצבים שבהם היה הקלף
-        private bool backFinal; // האם הקלף עם הפנים כלפי מטה
-
-
-        public void SetBackFinal(bool boolian) // מעדכנת האם הקלף הפוך
-        {
-            this.backFinal = boolian;
-        }
-        public bool GetBackFinal()//מחזירה האם הקלף הפוך
-        {
-            return this.backFinal;
-        }
-
-        public void SetX(int num)//מעדכנת ערך האיקס של מיקום הקלף
-        {
-            this.x = num;
-        }
-
-        public void SetY(int num)//מעדכנת ערך הווי של מיקום הקלף
-        {
-            this.y = num;
-        }
-
-        public int GetX()//מחזירה ערך האיקס שח מיקום הקלף
-        {
-            return this.x;
-        }
-
-        public int GetY()//מחזירה ערך הווי של מיקום הקלף
-        {
-            return this.y;
-        }
-
-        public static void SetGame(Game game1)//פעולה סטטית המאפשרת להשתמש בפעולות המחלקה
-        {
-            game = game1;
-        }
-
-        public static void SetMainGame(Main_Game mainGame1)//פעולה סטטית המאפשרת להשתמש בפעולות הפורם
-        {
-            mainGame = mainGame1;
-        }
+        public bool BackFinal { get; set; }
 
         public Stack<Undo> GetStackLastTurn()//מחזירה את המצב האחרון שבו היה הקלף
         {
@@ -136,7 +95,7 @@ namespace Shithead
             {
                 if (e.Button == MouseButtons.Left && pictureBox.Location.Y>300 )//בשביל הקלפים האחרונים לשים משתנה בוליאני שבסוף המשחק משתנה כל פעם בהתאם למצב
                 {
-                    if (pictureBox.Location.X > 450 || ((isDraggingFromListFinal)&&(!backFinal)))
+                    if (pictureBox.Location.X > 450 || ((isDraggingFromListFinal)&&(!BackFinal)))
                     {
 
                         DragJustOneCard(pictureBox);// סימון עבור ארוע התזוזה שאנחנו בתהליך גרירה
@@ -195,29 +154,29 @@ namespace Shithead
             
 
            
-            if (game.GetStartGameButton())
+            if (Game.GetStartGameButton())
             {
                 Replace(pictureBox); 
                                
             }
 
-            if ((pictureBox.Location.X > 660 && pictureBox.Location.X < 760) && (pictureBox.Location.Y > 260 && pictureBox.Location.Y < 360) && !game.GetStartGameButton())// בדיקה שהקלף הונח על העירמה שבמרכז השולחן
+            if ((pictureBox.Location.X > 660 && pictureBox.Location.X < 760) && (pictureBox.Location.Y > 260 && pictureBox.Location.Y < 360) && !Game.GetStartGameButton())// בדיקה שהקלף הונח על העירמה שבמרכז השולחן
             {
                
                 Card c;
-                List<Card> listPlayer = game.GetCardStackPlayer().GetList();
+                List<Card> listPlayer = Game.GetCardStackPlayer().GetList();
               
-                if (game.CheckWin())
+                if (Game.CheckWin())
                     return;
 
                
                 if (listPlayer.IsEmpty()&&isDraggingFromListFinal)//האם הקלף נזרק מהקלפים שעל השולחן
                 {
-                    List<Card> listPlayerFinal=game.GetCardStackPlayer().GetListFinal();                   
-                    c = game.GetCardStackPlayer().FindCard(listPlayerFinal, pictureBox); ////הוצאת הקלף מרשימת הקלפים שעל השולחן
+                    List<Card> listPlayerFinal=Game.GetCardStackPlayer().GetListFinal();                   
+                    c = Game.GetCardStackPlayer().FindCard(listPlayerFinal, pictureBox); ////הוצאת הקלף מרשימת הקלפים שעל השולחן
                     c.SetIsDraggingFromListFinal(false);
-                    game.GetCardStackPlayer().InsertCardToList(listPlayer, c);//העברת הקלף מהשולחן אל היד כדי להשתמש בו
-                    game.GetCardStackPlayer().ChekCardInList(listPlayerFinal, c);//מחיקת הקלף מרשימת הקלפים שעל השולחן
+                    Game.GetCardStackPlayer().InsertCardToList(listPlayer, c);//העברת הקלף מהשולחן אל היד כדי להשתמש בו
+                    Game.GetCardStackPlayer().ChekCardInList(listPlayerFinal, c);//מחיקת הקלף מרשימת הקלפים שעל השולחן
                   
                   
                   
@@ -236,12 +195,12 @@ namespace Shithead
                 else
                 {
                  
-                    mainGame.EnabledUndo(true);
-                    c = game.GetCardStackPlayer().FindCard(listPlayer, pictureBox);//הוצאת הקלף מרשימת הקלפים שביד
+                    MainGame.EnabledUndo(true);
+                    c = Game.GetCardStackPlayer().FindCard(listPlayer, pictureBox);//הוצאת הקלף מרשימת הקלפים שביד
                 
                 }              
                
-                     if (game.IsBigger(game.GetStack(), c))//בדיקה האם הקלף שנזרק יותר גדול מהקלף שבראש העירמה
+                     if (Game.IsBigger(Game.GetStack(), c))//בדיקה האם הקלף שנזרק יותר גדול מהקלף שבראש העירמה
                      {
 
                          pictureBox.Location = new Point(700, 300);
@@ -249,31 +208,31 @@ namespace Shithead
                          Card card;
 
                          
-                        card = game.GetCardStackPlayer().FindCardAndRemove(listPlayer, pictureBox);                        
+                        card = Game.GetCardStackPlayer().FindCardAndRemove(listPlayer, pictureBox);                        
 
-                        if (!game.GetStack().IsEmpty())
+                        if (!Game.GetStack().IsEmpty())
                         {
-                            if (game.GetStack().Top().GetNum() == 3)
+                            if (Game.GetStack().Top().GetNum() == 3)
                             {
-                                game.GetStack().Top().GetPictureBox().Location = new Point(700, 300);
+                                Game.GetStack().Top().GetPictureBox().Location = new Point(700, 300);
                             }                           
                         }
 
                         PushStackLastTurn(Undo.PlayerThrowCard);
-                        game.PushStack(card);
-                        game.PushStackUndo(card); 
+                        Game.PushStack(card);
+                        Game.PushStackUndo(card); 
 
 
 
-                         game.RemoveCard(game.GetListMemory(), card); //(הוצאת קלף שהמשתמש זרק מרשימת הזיכרון ( אם היא נמצאת שם  
+                         Game.RemoveCard(Game.GetListMemory(), card); //(הוצאת קלף שהמשתמש זרק מרשימת הזיכרון ( אם היא נמצאת שם  
 
                          bool cardInQueue = true; 
-                             while (game.GetCardStackPlayer().LengthList(listPlayer) < 3 && cardInQueue)
+                             while (Game.GetCardStackPlayer().LengthList(listPlayer) < 3 && cardInQueue)
                              {
                                  //השלמה לשלושה קלפים ביד ע"י שליפת קלפים מהקופה
-                                 if (!game.GetCardStackPlayer().GetQueue().IsEmpty())
+                                 if (!Game.GetCardStackPlayer().GetQueue().IsEmpty())
                                  {
-                                     game.DrawCard(card);
+                                     Game.DrawCard(card);
                                    
                                  }
                                  else
@@ -282,49 +241,49 @@ namespace Shithead
 
                          if (card.GetNum() == 10)
                          {
-                             game.TheNumIs10();                             
+                             Game.TheNumIs10();                             
                                                           
                          }
 
 
 
-                         if ((card.GetNum() != 8) && (card.GetNum() != 10) && !game.FourCardsHaveTheSameNumber(game.GetStack()))
+                         if ((card.GetNum() != 8) && (card.GetNum() != 10) && !Game.FourCardsHaveTheSameNumber(Game.GetStack()))
                          {
                              //טיפול בזריקה של יותר מקלף אחד
                              int count = 0;
 
-                             if(!game.GetCardStackPlayer().GetList().IsEmpty())
+                             if(!Game.GetCardStackPlayer().GetList().IsEmpty())
                              {
-                                 count = game.GetCardStackPlayer().HowManyCardsInList(game.GetCardStackPlayer().GetList(), card);
+                                 count = Game.GetCardStackPlayer().HowManyCardsInList(Game.GetCardStackPlayer().GetList(), card);
                              }
 
                              if (count != 0) 
                              {
 
-                                 game.ThrowPlayerSameNumber(game.GetNum(), card);
-                                 game.SetNum(1);
-                                 game.OrganizeList(game.GetCardStackPlayer(), "player");
+                                 Game.ThrowPlayerSameNumber(Game.GetNum(), card);
+                                 Game.SetNum(1);
+                                 Game.OrganizeList(Game.GetCardStackPlayer(), "player");
 
                              }
-                             if (game.CheckWin())
+                             if (Game.CheckWin())
                              {
                                  return;
                              }
 
                              ChangeIsDragingBackFinal();
-                             game.ChangeTextBox();
-                             mainGame.ChangeVisible(game.FindSameCard());
-                             game.OrganizeList(game.GetCardStackPlayer(), "player");
-                             if (!(game.FourCardsHaveTheSameNumber(game.GetStack())))
+                             Game.ChangeTextBox();
+                             MainGame.ChangeVisible(Game.FindSameCard());
+                             Game.OrganizeList(Game.GetCardStackPlayer(), "player");
+                             if (!(Game.FourCardsHaveTheSameNumber(Game.GetStack())))
                              {
-                                 game.ComputerThrowCard();//העברת התור למחשב
+                                 Game.ComputerThrowCard();//העברת התור למחשב
                              }                         
                          }                     
 
                          ChangeIsDragingBackFinal();
-                         game.ChangeTextBox();
-                         mainGame.ChangeVisible(game.FindSameCard());
-                         game.OrganizeList(game.GetCardStackPlayer(), "player");
+                         Game.ChangeTextBox();
+                         MainGame.ChangeVisible(Game.FindSameCard());
+                         Game.OrganizeList(Game.GetCardStackPlayer(), "player");
 
                      }
                                
@@ -333,11 +292,11 @@ namespace Shithead
                      {
                          //זריקת קלף שעל פי החוקים לא ניתן לשים מעל הקלפים שנמצאים בערימה
                          MessageBox.Show("מהלך לא חוקי");                         
-                         pictureBox.Location = new Point(x, y);
+                         pictureBox.Location = new Point(X, Y);
                                              
-                         if (c.isDraggingFromListFinal && !c.backFinal)
+                         if (c.isDraggingFromListFinal && !c.BackFinal)
                          {
-                             game.GetCardStackPlayer().GetListFinal().Insert(null, c);
+                             Game.GetCardStackPlayer().GetListFinal().Insert(null, c);
                          }
 
                      }
@@ -346,13 +305,13 @@ namespace Shithead
             else
             {
                 //למנוע רמאות של בחירת קלף אחר מרשימת הקלפים שנמצאים על השולחן 
-                if (game.GetCardStackPlayer().GetLastCards()&&game.GetCardStackPlayer().GetList().IsEmpty())
+                if (Game.GetCardStackPlayer().GetLastCards()&&Game.GetCardStackPlayer().GetList().IsEmpty())
                 {                   
-                  Card  card = game.GetCardStackPlayer().FindCard(game.GetCardStackPlayer().GetListFinal(), pictureBox);
+                  Card  card = Game.GetCardStackPlayer().FindCard(Game.GetCardStackPlayer().GetListFinal(), pictureBox);
                   card.SetIsDraggingFromListFinal(true);                 
                   MessageBox.Show("אתה חייב להשתמש בקלף הזה");
                 }
-                  pictureBox.Location = new Point(x, y);
+                  pictureBox.Location = new Point(X, Y);
                   
                 
             }
@@ -371,12 +330,12 @@ namespace Shithead
             if ((pictureBox.Location.X > 30 && pictureBox.Location.X < 70) && (pictureBox.Location.Y > 490 && pictureBox.Location.Y < 530))
             {
 
-                Card cardReplaced = game.GetCardStackPlayer().FindCard(game.GetCardStackPlayer().GetList(), pictureBox);
-                Card caaaaaaaa = game.GetCardStackPlayer().GetListFinal().GetFirst().GetInfo();
-                Card caaa = game.GetCardStackPlayer().FindCardAcordingToLocation(game.GetCardStackPlayer().GetListFinal(),game.GetCardStackPlayer().GetList(), cardReplaced, 50, 510);
-                game.FindSameCard();
-                mainGame.ChangeVisible(game.GetChangeVisible());
-                game.OrganizeList(game.GetCardStackPlayer(), "player");
+                Card cardReplaced = Game.GetCardStackPlayer().FindCard(Game.GetCardStackPlayer().GetList(), pictureBox);
+                Card caaaaaaaa = Game.GetCardStackPlayer().GetListFinal().GetFirst().GetInfo();
+                Card caaa = Game.GetCardStackPlayer().FindCardAcordingToLocation(Game.GetCardStackPlayer().GetListFinal(),Game.GetCardStackPlayer().GetList(), cardReplaced, 50, 510);
+                Game.FindSameCard();
+                MainGame.ChangeVisible(Game.GetChangeVisible());
+                Game.OrganizeList(Game.GetCardStackPlayer(), "player");
 
                 return;
 
@@ -386,12 +345,12 @@ namespace Shithead
             if ((pictureBox.Location.X > 130 && pictureBox.Location.X < 170) && (pictureBox.Location.Y > 490 && pictureBox.Location.Y < 530))
             {
 
-                Card cardReplaced = game.GetCardStackPlayer().FindCard(game.GetCardStackPlayer().GetList(), pictureBox);
-                Card caaaaaaaa = game.GetCardStackPlayer().GetListFinal().GetFirst().GetInfo();
-                Card caaa = game.GetCardStackPlayer().FindCardAcordingToLocation(game.GetCardStackPlayer().GetListFinal(), game.GetCardStackPlayer().GetList(), cardReplaced, 150, 510);
-                game.FindSameCard();
-                mainGame.ChangeVisible(game.GetChangeVisible());
-                game.OrganizeList(game.GetCardStackPlayer(), "player");
+                Card cardReplaced = Game.GetCardStackPlayer().FindCard(Game.GetCardStackPlayer().GetList(), pictureBox);
+                Card caaaaaaaa = Game.GetCardStackPlayer().GetListFinal().GetFirst().GetInfo();
+                Card caaa = Game.GetCardStackPlayer().FindCardAcordingToLocation(Game.GetCardStackPlayer().GetListFinal(), Game.GetCardStackPlayer().GetList(), cardReplaced, 150, 510);
+                Game.FindSameCard();
+                MainGame.ChangeVisible(Game.GetChangeVisible());
+                Game.OrganizeList(Game.GetCardStackPlayer(), "player");
 
 
                 return;
@@ -402,12 +361,12 @@ namespace Shithead
             if ((pictureBox.Location.X > 230 && pictureBox.Location.X < 270) && (pictureBox.Location.Y > 490 && pictureBox.Location.Y < 530))
             {
 
-                Card cardReplaced = game.GetCardStackPlayer().FindCard(game.GetCardStackPlayer().GetList(), pictureBox);
-                Card caaaaaaaa = game.GetCardStackPlayer().GetListFinal().GetFirst().GetInfo();
-                Card caaa = game.GetCardStackPlayer().FindCardAcordingToLocation(game.GetCardStackPlayer().GetListFinal(), game.GetCardStackPlayer().GetList(), cardReplaced, 250, 510);
-                game.FindSameCard();
-                mainGame.ChangeVisible(game.GetChangeVisible());
-                game.OrganizeList(game.GetCardStackPlayer(), "player");
+                Card cardReplaced = Game.GetCardStackPlayer().FindCard(Game.GetCardStackPlayer().GetList(), pictureBox);
+                Card caaaaaaaa = Game.GetCardStackPlayer().GetListFinal().GetFirst().GetInfo();
+                Card caaa = Game.GetCardStackPlayer().FindCardAcordingToLocation(Game.GetCardStackPlayer().GetListFinal(), Game.GetCardStackPlayer().GetList(), cardReplaced, 250, 510);
+                Game.FindSameCard();
+                MainGame.ChangeVisible(Game.GetChangeVisible());
+                Game.OrganizeList(Game.GetCardStackPlayer(), "player");
 
                 return;
 
@@ -420,9 +379,9 @@ namespace Shithead
         public void DragJustOneCard(PictureBox PB)
         { 
             //חסימת האפשרות לגרור יותר מקלף אחד מהרשימה של הקלפים האחרונים           
-            List<Card> listPlayerFinal = game.GetCardStackPlayer().GetListFinal();
+            List<Card> listPlayerFinal = Game.GetCardStackPlayer().GetListFinal();
             Node<Card> pos = listPlayerFinal.GetFirst();
-            if (game.GetCardStackPlayer().LengthList(listPlayerFinal) <= 3)
+            if (Game.GetCardStackPlayer().LengthList(listPlayerFinal) <= 3)
             {
 
                 while (pos != null)
@@ -433,7 +392,7 @@ namespace Shithead
                     }
                     pos = pos.GetNext();
                 }             
-                game.GetCardStackPlayer().SetLastCards(true);
+                Game.GetCardStackPlayer().SetLastCards(true);
              
             }
        
@@ -443,11 +402,11 @@ namespace Shithead
         public void ChangeIsDragingBackFinal()
         {
             //בסוף התור שינוי כל הקלפים שנמצאים הפוכים על השולחן של השחקן ללא ניתנים לגרירה
-            if (game.GetCardStackPlayer().GetList().IsEmpty())
+            if (Game.GetCardStackPlayer().GetList().IsEmpty())
             {
-                List<Card> listPlayerFinal = game.GetCardStackPlayer().GetListFinal(); //הרשימה ריקה
+                List<Card> listPlayerFinal = Game.GetCardStackPlayer().GetListFinal(); //הרשימה ריקה
                 Node<Card> pos = listPlayerFinal.GetFirst();
-                int count = game.GetCardStackPlayer().LengthList(listPlayerFinal);
+                int count = Game.GetCardStackPlayer().LengthList(listPlayerFinal);
 
 
                 while (pos != null)
@@ -455,11 +414,11 @@ namespace Shithead
                     pos.GetInfo().SetIsDraggingFromListFinal(true);
                     if (count == 3)
                     {
-                        pos.GetInfo().SetBackFinal(false);
+                        pos.GetInfo().BackFinal = false;
                     }
                     else
                     {
-                        game.GetListMemory().Insert(null, pos.GetInfo());
+                        Game.GetListMemory().Insert(null, pos.GetInfo());
                     }
                     pos = pos.GetNext();
                 }
@@ -468,12 +427,12 @@ namespace Shithead
 
             else
             {
-                List<Card> listPlayerFinal = game.GetCardStackPlayer().GetListFinal();
+                List<Card> listPlayerFinal = Game.GetCardStackPlayer().GetListFinal();
                 Node<Card> pos = listPlayerFinal.GetFirst();
 
                 while (pos != null)
                 {
-                    game.GetCardStackPlayer().FindCardAndRemove(game.GetListMemory() , pos.GetInfo().GetPictureBox());
+                    Game.GetCardStackPlayer().FindCardAndRemove(Game.GetListMemory() , pos.GetInfo().GetPictureBox());
                     pos = pos.GetNext();
                 }
 
