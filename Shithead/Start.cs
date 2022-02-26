@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shithead.DatabaseCommunication;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,8 +38,12 @@ namespace Shithead
         private void button4_Click(object sender, EventArgs e)
         {
             //לחצן טבלת שיאים
+
+            SQLDatabase sqlDatabaseHandler = new SQLDatabase();
+            sqlDatabaseHandler.CreateDatabase();
+
             TableOfRecords a = new TableOfRecords();
-            a.Show();            
+            a.Show();
         }
 
         private void Start_MouseClick(object sender, MouseEventArgs e)
