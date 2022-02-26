@@ -36,23 +36,23 @@ namespace Shithead
         public void StartLocation(Game game)
         {
             //קביעת המיקום ההתחלתי של הקלפים במשחק- מצב התחלתי של הלוח
-            game.SetChangeVisible(1);
-            game.SetNum(1);
+            game.ChangeVisibleThorwMoreThanOneCardButtons = (1);
+            game.NumberOfSameCard = (1);
 
             int x = 50, y1 = 150, y2 = 500;
 
-            List<Card> ListComputerFinal = game.GetCardStackComputer().GetListFinal();
-            List<Card> ListPlayerFinal = game.GetCardStackPlayer().GetListFinal();
+            List<Card> ListComputerFinal = game.GetCardStackComputer().TableCards;
+            List<Card> ListPlayerFinal = game.GetCardStackPlayer().TableCards;
 
-            List<Card> ListComputer = game.GetCardStackComputer().GetList();
-            List<Card> ListPlayer = game.GetCardStackPlayer().GetList();
+            List<Card> ListComputer = game.GetCardStackComputer().HandCards;
+            List<Card> ListPlayer = game.GetCardStackPlayer().HandCards;
 
 
 
             for (int i = 0; i < 6; i++)
             {
-                Card CardComputer = game.GetCardStackComputer().GetQueue().Remove();
-                Card CardPlayer = game.GetCardStackPlayer().GetQueue().Remove();
+                Card CardComputer = game.GetCardStackComputer().Deck.Remove();
+                Card CardPlayer = game.GetCardStackPlayer().Deck.Remove();
 
                 if (i == 3)
                 {
@@ -93,12 +93,12 @@ namespace Shithead
 
             for (int i = 0; i < 3; i++)
             {
-                Card cardComputer = game.GetCardStackComputer().GetQueue().Remove();
+                Card cardComputer = game.GetCardStackComputer().Deck.Remove();
 
-                Card cardPlayer = game.GetCardStackPlayer().GetQueue().Remove();
+                Card cardPlayer = game.GetCardStackPlayer().Deck.Remove();
 
                 cardComputer.PictureBox.Location = new Point(x, 50);
-                if (game.GetShow() == ShowComputerCards.Yes)
+                if (game.ShowComputerCards == ShowComputerCards.Yes)
                 {
                     cardComputer.SetCard(cardComputer.PictureBox);
                 }
@@ -115,7 +115,7 @@ namespace Shithead
                 game.GetCardStackPlayer().InsertCardToList(ListPlayer, cardPlayer);
 
                 game.FindSameCard();
-                mainGame.ChangeVisible(game.GetChangeVisible());
+                mainGame.ChangeVisible(game.ChangeVisibleThorwMoreThanOneCardButtons);
 
                 x = x + 100;
 

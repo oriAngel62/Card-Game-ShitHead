@@ -33,8 +33,8 @@ namespace Shithead
             Card.MainGame = this;
             Game.SetMainGame(this);
             Board.SetMainGame(this);                             
-            game.SetLevel(Level.Normal);
-            game.SetShow(ShowComputerCards.No); //כשאני מסיים את המשחק לשנות את זה ל no
+            game.Level = (Level.Normal);
+            game.ShowComputerCards = (ShowComputerCards.No); //כשאני מסיים את המשחק לשנות את זה ל no
             board.StartLocation(game);
 
 
@@ -126,11 +126,11 @@ namespace Shithead
         private void button2_Click(object sender, EventArgs e)
         {
 
-            game.SetStartGameButton(false);
+            game.StartGameButton = (false);
             button2.Visible = false;
             this.Refresh();
 
-            if ((game.GetLevel() == Level.Normal) || (game.GetLevel() == Level.Hard))
+            if ((game.Level == Level.Normal) || (game.Level == Level.Hard))
             {
                 game.ComputerReplaceCards();
                 game.OrganizeList(game.GetCardStackComputer(), "computer");
@@ -154,18 +154,18 @@ namespace Shithead
 
         private void button3_Click(object sender, EventArgs e)
         {
-            game.SetNum(2);
+            game.NumberOfSameCard = (2);
         }
 
 
         private void button4_Click(object sender, EventArgs e)
         {
-            game.SetNum(3);
+            game.NumberOfSameCard = (3);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            game.SetNum(4);
+            game.NumberOfSameCard = (4);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -202,7 +202,7 @@ namespace Shithead
 
       private void קלToolStripMenuItem_Click(object sender, EventArgs e)
       {
-          game.SetLevel(Level.Easy);
+          game.Level = (Level.Easy);
           קלToolStripMenuItem.Checked = true;
           בינוניToolStripMenuItem.Checked = false;
           קשהToolStripMenuItem.Checked = false;
@@ -210,7 +210,7 @@ namespace Shithead
 
       private void בינוניToolStripMenuItem_Click(object sender, EventArgs e)
       {
-          game.SetLevel(Level.Normal);
+          game.Level = (Level.Normal);
           בינוניToolStripMenuItem.Checked = true;
           קשהToolStripMenuItem.Checked = false;
           קלToolStripMenuItem.Checked = false;
@@ -218,7 +218,7 @@ namespace Shithead
 
       private void קשהToolStripMenuItem_Click(object sender, EventArgs e)
       {
-          game.SetLevel(Level.Hard);
+            game.Level = (Level.Hard);
           קשהToolStripMenuItem.Checked = true;
           קלToolStripMenuItem.Checked = false;
           בינוניToolStripMenuItem.Checked = false;
@@ -233,7 +233,7 @@ namespace Shithead
 
       private void חשוףToolStripMenuItem_Click(object sender, EventArgs e)
       {
-          game.SetShow(ShowComputerCards.Yes);
+          game.ShowComputerCards = (ShowComputerCards.Yes);
           חשוףToolStripMenuItem.Checked = true;
           הסתרToolStripMenuItem.Checked = false;
           game.OrganizeList(game.GetCardStackComputer(), "computer");
@@ -242,7 +242,7 @@ namespace Shithead
 
       private void הסתרToolStripMenuItem_Click(object sender, EventArgs e)
       {
-          game.SetShow(ShowComputerCards.No);
+          game.ShowComputerCards = (ShowComputerCards.No);
           הסתרToolStripMenuItem.Checked = true;
           חשוףToolStripMenuItem.Checked = false;
           game.OrganizeList(game.GetCardStackComputer(), "computer");

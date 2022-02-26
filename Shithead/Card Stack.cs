@@ -10,55 +10,23 @@ namespace Shithead
     public class Card_Stack
     {
 
-        private Queue<Card> queue = new Queue<Card>(); // הקופה שמכילה את הקלפים של כל שחקן לאחר חלוקתם
-        private List<Card> list = new List<Card>();// הקלפים שביד השחקן
-        private List<Card> listFinal = new List<Card>();// הקלפים שנמצאים על השולחן
+        public Queue<Card> Deck { get; set; } = new Queue<Card>();
+        public List<Card> HandCards { get; set; } = new List<Card>();
+        public List<Card> TableCards { get; set; } = new List<Card>();
         
+        private bool _lastCards = false;// טיפול ב"רמאות" של שחקן- אם הוא מחזיר קלף עם הפנים כלפי מטה שהוא כבר לקח 
 
-        private bool lastCards = false;// טיפול ב"רמאות" של שחקן- אם הוא מחזיר קלף עם הפנים כלפי מטה שהוא כבר לקח 
-
-        static Game game; //תכונה סטטית לצורך שימוש בפעולות המחלקה 
-
-        public static void SetGame(Game game1)
-        {
-            //פעולה סטטית לשימוש בפעולות המחלקה
-            game = game1;
-        }
-
-        public Queue<Card> GetQueue()
-        {
-            //מחזירה את הקופה
-            return this.queue;
-        }
-
-        public List<Card> GetList()
-        {
-            //מחזירה את הקלפים שביד
-            return this.list;
-        }
-
-        public void SetList(List<Card> list)
-        {
-            //הפעולה מעדכנת רשימה
-            this.list = list;
-        }
-
-
-        public List<Card> GetListFinal() 
-        {
-            //מחזירה את הקלפים
-            return this.listFinal;
-        }
+        private static Game _game;
 
         public void SetLastCards(bool boolian) 
         {
             //עדכון האם השחקן השתשמש בקלף עם הפנים כלפי מטה 
-            this.lastCards = boolian;
+            _lastCards = boolian;
         }
         public bool GetLastCards()
         {
             //מחזירה האם השחקן השתמש בקלף בקלף עם הפנים כלפי מטה
-            return this.lastCards;
+            return _lastCards;
         }
 
 
@@ -465,7 +433,7 @@ namespace Shithead
                 {
                     if (stack.Top().NumValue == 3)
                     {
-                        bool boolian = game.TheNumIs3(seven);
+                        bool boolian = _game.TheNumIs3(seven);
                         stack.Pop();
                         if (boolian)
                             return seven;
