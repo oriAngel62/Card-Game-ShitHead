@@ -35,13 +35,11 @@ namespace Shithead
 
         }    
 
-        private void button4_Click(object sender, EventArgs e)
+        private void TableOfRecords_Click(object sender, EventArgs e)
         {
             //לחצן טבלת שיאים
 
-            SQLDatabase sqlDatabaseHandler = new SQLDatabase();
-            sqlDatabaseHandler.CreateDatabase();
-
+           
             TableOfRecords a = new TableOfRecords();
             a.Show();
         }

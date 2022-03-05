@@ -9,13 +9,29 @@ namespace Shithead.DatabaseCommunication
 {
     public class SQLDatabase : IDisposable
     {
-        private SqlConnection _sqlConnection; 
+        private SqlConnection _sqlConnection;
+
+        public  List<PlayerData> PlayerData { get; set; } = new List<PlayerData>();
 
         public SQLDatabase()
         {
-            var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-            _sqlConnection = new SqlConnection(connectionString);
-            _sqlConnection.Open();
+            String connectionString = @"Data Source=(localdb)\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT Name, Win,Lose, Score FROM Word", connection);
+                connection.Open();
+                SqlDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read()) // until we go through all the records
+                {
+                    PlayerData.Add(new PlayerData((string)dataReader["Name"],(int) dataReader["Win"],(int) dataReader["Lose"], (int)dataReader["Score"]));          
+                }
+
+            }
+
+
+            //var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+            //_sqlConnection = new SqlConnection(connectionString);
+            //_sqlConnection.Open();
         }
 
         public void Dispose()

@@ -12,6 +12,7 @@ namespace Shithead
     {
         public List<string> Names { get; set;  } = new List<string>();
 
+        public static DatabaseCommunication.SQLDatabase SQLDatabase { get; set; }
         public static TableOfRecords TableOfRecords { get; set; }
         public static End End { get; set; }
         public string Score { get; set; } = "";
@@ -19,6 +20,13 @@ namespace Shithead
 
         public static readonly string RECORDS_FILE_NAME = "Images/MyTest.txt";
 
+
+
+
+        public void WriteToForm()
+        {
+            SQLDatabase = new DatabaseCommunication.SQLDatabase();
+        }
         public void WriteRecordsToFile()
         {
             if (End != null)
