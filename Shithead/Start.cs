@@ -21,6 +21,8 @@ namespace Shithead
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //End end = new End(true);
+            //end.Show();
             //לחצן התחל משחק
             Main_Game a = new Main_Game();
             a.Show();
@@ -37,11 +39,7 @@ namespace Shithead
 
         private void TableOfRecords_Click(object sender, EventArgs e)
         {
-            //לחצן טבלת שיאים
-
-           
-            TableOfRecords a = new TableOfRecords();
-            a.Show();
+            ManageTableOfRecords manageTableOfRecords = new ManageTableOfRecords("", true);
         }
 
         private void Start_MouseClick(object sender, MouseEventArgs e)

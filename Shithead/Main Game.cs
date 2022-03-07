@@ -182,12 +182,14 @@ namespace Shithead
 
       public void End(int pointsComputer,int pointsPlayer)
       {
-          End end = new End();
-          end.SetComputer(pointsComputer);
-          end.SetPlayer(pointsPlayer);
-        
-
-          if (pointsComputer > pointsPlayer)
+            bool win = true;
+            if(pointsComputer > pointsPlayer)
+            {
+                win = false;
+            }
+          End end = new End(win);
+  
+          if (!win)
           {
               end.BackgroundImage = Shithead.Properties.Resources.youLose;
           }
@@ -255,8 +257,7 @@ namespace Shithead
 
       private void טבלתשיאיםToolStripMenuItem_Click(object sender, EventArgs e)
       {
-          TableOfRecords a = new TableOfRecords();
-          a.Show();
+            ManageTableOfRecords manageTableOfRecords = new ManageTableOfRecords("", true);
       }
 
       private void יציאהToolStripMenuItem_Click(object sender, EventArgs e)
